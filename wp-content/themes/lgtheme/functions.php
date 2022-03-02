@@ -1,0 +1,365 @@
+<?php
+/**
+ * GeneratePress.
+ *
+ * Please do not make any edits to this file. All edits should be done in a child theme.
+ *
+ * @package GeneratePress
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+// Set our theme version.
+define( 'GENERATE_VERSION', '3.1.2' );
+
+if ( ! function_exists( 'generate_setup' ) ) {
+	add_action( 'after_setup_theme', 'generate_setup' );
+	/**
+	 * Sets up theme defaults and registers support for various WordPress features.
+	 *
+	 * @since 0.1
+	 */
+	function generate_setup() {
+		// Make theme available for translation.
+		load_theme_textdomain( 'generatepress' );
+
+		// Add theme support for various features.
+		add_theme_support( 'automatic-feed-links' );
+		add_theme_support( 'post-thumbnails' );
+		add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link', 'status' ) );
+		add_theme_support( 'woocommerce' );
+		add_theme_support( 'title-tag' );
+		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'script', 'style' ) );
+		add_theme_support( 'customize-selective-refresh-widgets' );
+		add_theme_support( 'align-wide' );
+		add_theme_support( 'responsive-embeds' );
+
+		$color_palette = generate_get_editor_color_palette();
+
+		if ( ! empty( $color_palette ) ) {
+			add_theme_support( 'editor-color-palette', $color_palette );
+		}
+
+		add_theme_support(
+			'custom-logo',
+			array(
+				'height' => 70,
+				'width' => 350,
+				'flex-height' => true,
+				'flex-width' => true,
+			)
+		);
+
+		// Register primary menu.
+		register_nav_menus(
+			array(
+				'primary' => __( 'Primary Menu', 'generatepress' ),
+			)
+		);
+
+		/**
+		 * Set the content width to something large
+		 * We set a more accurate width in generate_smart_content_width()
+		 */
+		global $content_width;
+		if ( ! isset( $content_width ) ) {
+			$content_width = 1200; /* pixels */
+		}
+
+		// This theme styles the visual editor to resemble the theme style.
+		add_editor_style( 'assets/css/admin/editor-style.css' );
+	}
+}
+
+/**
+ * Get all necessary theme files
+ */
+$theme_dir = get_template_directory();
+
+require $theme_dir . '/inc/theme-functions.php';
+require $theme_dir . '/inc/defaults.php';
+require $theme_dir . '/inc/class-css.php';
+require $theme_dir . '/inc/css-output.php';
+require $theme_dir . '/inc/general.php';
+require $theme_dir . '/inc/customizer.php';
+require $theme_dir . '/inc/markup.php';
+require $theme_dir . '/inc/typography.php';
+require $theme_dir . '/inc/plugin-compat.php';
+require $theme_dir . '/inc/block-editor.php';
+require $theme_dir . '/inc/class-typography.php';
+require $theme_dir . '/inc/class-typography-migration.php';
+require $theme_dir . '/inc/class-html-attributes.php';
+require $theme_dir . '/inc/class-theme-update.php';
+require $theme_dir . '/inc/class-rest.php';
+require $theme_dir . '/inc/deprecated.php';
+
+if ( is_admin() ) {
+	require $theme_dir . '/inc/meta-box.php';
+	require $theme_dir . '/inc/class-dashboard.php';
+}
+
+/**
+ * Load our theme structure
+ */
+require $theme_dir . '/inc/structure/archives.php';
+require $theme_dir . '/inc/structure/comments.php';
+require $theme_dir . '/inc/structure/featured-images.php';
+require $theme_dir . '/inc/structure/footer.php';
+require $theme_dir . '/inc/structure/header.php';
+require $theme_dir . '/inc/structure/navigation.php';
+require $theme_dir . '/inc/structure/post-meta.php';
+require $theme_dir . '/inc/structure/sidebars.php';
+
+
+
+//START CSS AND JS binding to theme
+function themeslug_enqueue_style() {
+    // wp_enqueue_style( 'about_us', get_stylesheet_directory_uri()."/assets/css/about_us.css" );
+    wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri()."/assets/css/bootstrap.min.css", false );
+    wp_enqueue_style( 'font-awesome', "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", false );
+    wp_enqueue_style( 'our-font', "https://fonts.googleapis.com/css?family=Nunito Sans:400,700,800", false );
+    wp_enqueue_style( 'blog', get_stylesheet_directory_uri()."/assets/css/blog.css" );
+    wp_enqueue_style( 'header', get_stylesheet_directory_uri()."/assets/css/header.css", false );
+    wp_enqueue_style( 'focused_events', get_stylesheet_directory_uri()."/assets/css/focused-events.css", false );
+    wp_enqueue_style( 'booking', get_stylesheet_directory_uri()."/assets/css/booking.css", false );
+    wp_enqueue_style( 'our_venues', get_stylesheet_directory_uri()."/assets/css/our_venues.css", false );
+    wp_enqueue_style( 'footer', get_stylesheet_directory_uri()."/assets/css/footer.css", false );
+    // wp_enqueue_style( 'desk_navbar', get_stylesheet_directory_uri()."/assets/css/desk_navbar.css", false );
+    // wp_enqueue_style( 'intern_header', get_stylesheet_directory_uri()."/assets/css/intern-header.css", false );
+    // wp_enqueue_style( 'inter_our_venues', get_stylesheet_directory_uri()."/assets/css/intern-our_venues.css", false );
+}
+ 
+function themeslug_enqueue_script() {
+    wp_enqueue_script( 'bootstrap', "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js", false );
+    wp_enqueue_script( 'myjquery', "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js", false );
+    wp_enqueue_script( 'myjquery', "https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js", false );
+    wp_enqueue_script( 'pagingnation', get_stylesheet_directory_uri()."/assets/js/pagingnation.js", false );
+    // wp_enqueue_script( 'myjquery', get_stylesheet_directory_uri()."/assets/js/jquery.min.js", false );
+    wp_enqueue_script( 'dropdown-arrow', get_stylesheet_directory_uri()."/assets/js/dropdown-arrow.js", false );
+    // wp_enqueue_script( 'logo', get_stylesheet_directory_uri()."/assets/js/logo.js", false );
+}
+ 
+add_action( 'wp_head', 'themeslug_enqueue_style' );
+add_action( 'wp_footer', 'themeslug_enqueue_script' );
+//END CSS AND JS binding to theme
+
+
+//START SET lastest 4 blog in menu
+add_filter( 'wp_get_nav_menu_items', 'custom_nav_menu_items2', 20, 2 );
+function _custom_nav_menu_item( $title, $url, $order, $parent = 0 ){
+  $item = new stdClass();
+  $item->ID = 1000000 + $order + $parent;
+  $item->db_id = $item->ID;
+  $item->title = $title;
+  $item->url = $url;
+  $item->menu_order = $order;
+  $item->menu_item_parent = $parent;
+  $item->type = '';
+  $item->object = '';
+  $item->object_id = '';
+  $item->classes = array();
+  $item->target = '';
+  $item->attr_title = '';
+  $item->description = '';
+  $item->xfn = '';
+  $item->status = '';
+  return $item;
+}
+function custom_nav_menu_items2( $items, $menu ) {
+	foreach($items as $key => $val)
+	{
+		if ( in_array("blog_menu",$val->classes) ) {
+			 $args = array(
+		        'post_type' => 'post',
+		        'post_status' => 'publish',
+		        'order' => 'DESC',
+    			'orderby' => 'ID',
+    			'posts_per_page' => '3'
+		    );
+
+		    $query = new WP_Query( $args );
+		    if( $query->have_posts() ){
+		       $i = 101;
+		        while( $query->have_posts() ){
+		            $query->the_post();
+
+		        	$items[] = _custom_nav_menu_item( get_the_title(), get_post_permalink(), $i++, $val->ID );
+		        }
+		    }
+		    wp_reset_postdata();
+
+			//$items[] = _custom_nav_menu_item( 'First Child', '/some-url', 101, $val->ID );
+			//$items[] = _custom_nav_menu_item( 'Second Child', '/some-url', 102, $val->ID );
+			//$items[] = _custom_nav_menu_item( 'Third Child', '/some-url', 103, $val->ID );
+		}
+
+	}
+  return $items;
+}
+//END SET lastest 4 blog in menu
+
+
+//START SET main menu css according to design
+class IBenic_Walker extends Walker_Nav_Menu {
+
+	function start_lvl( &$output, $depth = 0, $args = array() ) {
+		$indent = str_repeat( "\t", $depth );
+		$output .= "\n$indent<ul role=\"menu\" class=\"dropdown-menu\">\n";
+	}	
+    
+  function start_el(&$output, $item, $depth=0, $args=array(), $id = 0) {
+  	// echo '<pre>';print_r($item);
+  	$object = $item->object;
+	$type = $item->type;
+	$title = $item->title;
+	$description = $item->description;
+	$permalink = $item->url;
+	$menu_item_parent = $item->menu_item_parent;
+
+	if ( in_array("menu-item-has-children",$item->classes) ) {
+		
+		array_push($item->classes,'dropdown');
+	}
+
+	// if($menu_item_parent != 0)
+	// {
+	// 	array_push($item->classes,'drp-lemon');
+	// }
+		
+  	  $output .= "<li class='" .  implode(" ", $item->classes) . "'>";
+        
+      //Add SPAN if no Permalink
+      if( $permalink && $permalink != '#' ) {
+      	$output .= '<a href="' . $permalink . '">';
+      } else {
+      	$output .= '<span>';
+      }
+       
+      $output .= $title;
+
+      if( $description != '' && $depth == 0 ) {
+      	$output .= '<small class="description">' . $description . '</small>';
+      }
+
+      if( $permalink && $permalink != '#' ) {
+      	$output .= '</a>';
+      } else {
+      	$output .= '</span>';
+      }
+      return $output;
+
+  }
+    
+}
+//END Home page blog section
+
+
+//START Home page blog section
+add_shortcode( 'homepageblogs', 'display_custom_post_type' );
+
+function display_custom_post_type(){
+    $args = array(
+        'post_type' => 'post',
+        'post_status' => 'publish'
+    );
+
+    $string = '';
+    $string .= '<section id="blog">';
+    $query = new WP_Query( $args );
+    if( $query->have_posts() ){
+        $string .= '<div class="row list-wrapper">';
+        while( $query->have_posts() ){
+            $query->the_post();
+
+     		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); 
+
+            // $string .= '<li>' . get_the_title() . '</li>';
+            $string .= '<a href="'.get_post_permalink().'"><div class="col-md-4 blog-box">
+              <img src="'.$image[0].'">
+              <small>'.get_the_category()[0]->cat_name.'</small>
+              <p class="b-maintext">'.get_the_title().'</p>
+              <span class="b-arrow"><i class="fa fa-arrow-right"></i></span>
+           </div>';
+        }
+        $string .= '</div></a>';
+        $string .= '</section>';
+    }
+    wp_reset_postdata();
+    return $string;
+}
+//END Home page blog section
+
+
+
+//START For Mobile menu
+
+function wdm_register_mobile_menu() {
+add_theme_support( 'nav-menus' );
+register_nav_menus( array('mobile-menu' => __( 'Mobile Menu', 'wdm' )) );
+}
+add_action( 'init', 'wdm_register_mobile_menu' );
+
+// load the JS file
+function wdm_mm_toggle_scripts() {
+    wp_enqueue_script( 'wdm-mm-toggle', get_stylesheet_directory_uri() . '/js/mobile-menu-toggle.js', array('jquery') );
+}
+add_action( 'wp_enqueue_scripts', 'wdm_mm_toggle_scripts' );
+
+//END For Mobile menu
+
+
+//START SET main menu css according to design
+class IBenic_Walker_MobileMenu extends Walker_Nav_Menu {
+    
+  function start_el(&$output, $item, $depth=0, $args=array(), $id = 0) {
+  	// echo '<pre>';print_r($item);
+  	$object = $item->object;
+	$type = $item->type;
+	$title = $item->title;
+	$description = $item->description;
+	$permalink = $item->url;
+	$menu_item_parent = $item->menu_item_parent;
+
+	if ( in_array("menu-item-has-children",$item->classes) ) {
+		
+		array_push($item->classes,'dropdown');
+	}
+
+	// if($menu_item_parent != 0)
+	// {
+	// 	array_push($item->classes,'drp-lemon');
+	// }
+		
+  	  $output .= "<li class='" .  implode(" ", $item->classes) . "'>";
+        
+      //Add SPAN if no Permalink
+      if( $permalink && $permalink != '#' ) {
+      	$output .= '<a href="' . $permalink . '">';
+      } else {
+      	$output .= '<span>';
+      }
+       
+      $output .= $title;
+
+      if( $description != '' && $depth == 0 ) {
+      	$output .= '<small class="description">' . $description . '</small>';
+      }
+
+      if( $permalink && $permalink != '#' ) {
+      	$output .= '</a>';
+      } else {
+      	$output .= '</span>';
+      }
+      return $output;
+
+  }
+    
+}
+//END Home page blog section
+
+
+
+
+

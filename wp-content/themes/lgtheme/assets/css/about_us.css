@@ -1,0 +1,60 @@
+
+/*------------- about us -------------*/
+#aboutus {margin-top: 100px;}
+#aboutus .heading{ margin-top: 60px; margin-bottom: 8px;}
+
+.au-img{width: 100%;margin: 20px 0;}
+
+.wo-au-text-heading{
+    color: #D10000;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+    font-weight: 600;
+}
+
+.wo-au-text{
+    color: #fff;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    font-size: 15px;
+}
+.desk-au-img{width: 100%;}
+.mob-au-img{display: none;}
+
+/*--------------- check-out---------*/
+
+#aboutus .check-out{
+    text-align: center;
+    margin: 60px 0;
+    color: #fff;
+    background: #000;
+    padding: 35px 110px;
+    font-weight: 600;
+}
+
+#aboutus .btn-whatson{
+    background: #141413;
+    padding: 14px 95px!important;
+    border-radius: 0px!important;
+    font-weight: 600!important;
+}
+
+
+/*-----------------------------------------
+                Media Query                               
+------------------------------------------*/
+
+@media (max-width: 500px) {
+
+    /*---------About -------*/
+    #aboutus {    margin-top: 0px;}
+    .desk-au-img{display: none;}
+    .mob-au-img{display: block;width: 100%;}
+    #aboutus .heading{display: none;}
+    #aboutus { padding: 15px; }
+
+
+    /*--------- check out --------*/
+    #aboutus .check-out { padding: 35px 30px;}
+    #aboutus .btn-whatson { margin-top: 20px;}
+}

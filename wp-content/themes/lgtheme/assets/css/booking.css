@@ -1,0 +1,46 @@
+
+/*---------------- Booking ---------*/
+#booking{margin-top: 98px;}
+#booking .row{border: 16px solid #fff;}
+#booking .booking-col-text{padding: 30px;}
+#booking h1{
+    color: #fff;font-size: 43px;font-weight: 600;letter-spacing: 4px;
+}
+
+.mob-booking{display: none;}
+#booking .book-subhead{
+    color: #D10000;
+    margin-top: 3rem; 
+    margin-bottom: 2rem;    
+    font-size: 16px;
+    font-weight: 600;
+
+}
+
+#booking .book-info{color: #fff;font-size: 16px; letter-spacing: 1px;}
+
+#booking .mob-booking-col-text{display: none;}
+
+#booking .book-img{padding: 0;}
+
+/*-----------------------------------------
+                Media Query                               
+------------------------------------------*/
+
+@media (max-width: 500px) {
+
+
+    /*---------booking------*/
+
+    #booking {margin: 25px; }
+    #booking h1 {font-size: 28px;letter-spacing:4px;}
+    #booking .row{border: none;}
+    #booking .mob-booking{display: block;}
+    #booking .desk-booking{display: none;}
+    #booking .booking-col-text{padding: 0px;}
+    #booking .booking-col-text{display: none;}
+    #booking .mob-booking-col-text{display: block;}
+    #booking .book-info {letter-spacing: 1px; font-size: 14px;}
+    #booking .book-img{margin-top: 40px;}
+
+}

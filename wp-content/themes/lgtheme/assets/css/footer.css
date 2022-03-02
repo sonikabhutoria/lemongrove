@@ -1,0 +1,314 @@
+/*---------------- footer --------*/
+#footer{
+    /*background: #0E0E0E;*/
+}
+
+.footer-section {
+  background: #151414;
+  position: relative;
+}
+.footer-cta {
+  border-bottom: 1px solid #373636;
+}
+.single-cta i {
+  color: #ff5e14;
+  font-size: 30px;
+  float: left;
+  margin-top: 8px;
+}
+
+.footer-email:hover{color: #B90202; cursor: pointer;}
+
+.cta-text {
+  padding-left: 15px;
+  display: inline-block;
+}
+.cta-text h4 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.cta-text span {
+  color: #fff;
+  font-size: 15px;
+}
+.footer-content {
+  position: relative;
+  z-index: 2;
+}
+.footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-logo img {
+    max-width: 200px;
+}
+.footer-text p {
+  margin-bottom: 14px;
+  font-size: 14px;
+      color: #7e7e7e;
+  line-height: 28px;
+}
+.footer-social-icon span {
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+}
+.footer-social-icon a {
+  color: #fff;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #000;
+  transition: all 1s ease;
+}
+
+
+.facebook-bg:hover{
+    background: #D10000;
+    color: #fff;
+}
+
+.facebook-bg{
+  background: #fff;
+}
+
+.twitter-bg:hover{
+    background: #D10000;
+    color: #fff;
+}
+
+.twitter-bg{
+  background: #fff;
+}
+
+.instagram-bg:hover{
+        background: #D10000;
+    color: #fff;
+}
+
+.instagram-bg{
+  background: #fff;
+}
+.cont{color: #B90202; font-weight: 600; font-size: 20px;}
+.footer-text p{font-size: 18px; font-weight: 500;}
+.footer-widget-heading .footer-address {
+  color: #B90202;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.desk-footer-address {
+  color: #B90202;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+.hr-devider-top hr{margin: 90px 0 !important;border-top: 1px solid #696969!important;}
+.hr-devider-bottom hr{margin: 10px 0;border-top: 1px solid #696969!important;}
+.university-logo{ float: right;}
+.footer-row{margin-top: 60px;}
+.footer-note{color: #fff;font-size: 10px;}
+.footer-widget-heading{margin-bottom: 20px; }
+.footer-widget p{color: #fff;}
+.footer-widget ul li {
+  display: inline-block;
+  float: left;
+  width: 50%;
+  margin-bottom: 12px;
+}
+
+#footer .mob-footer-img{display: none;}
+#footer .mob-footer-address{display: none;}
+
+.footer-widget ul li a:hover{
+  color: #ff5e14;
+}
+.footer-widget ul li a {
+  color: #878787;
+  text-transform: capitalize;
+}
+.subscribe-form {
+  position: relative;
+  overflow: hidden;
+}
+.subscribe-form input {
+  width: 100%;
+  padding: 14px 28px;
+  background: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+}
+.subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: #ff5e14;
+    padding: 13px 20px;
+    border: 1px solid #ff5e14;
+    top: 0;
+}
+.subscribe-form button i {
+  color: #fff;
+  font-size: 22px;
+  transform: rotate(-6deg);
+}
+.copyright-area{
+  background: #151414;
+  padding: 40px 0;
+}
+.copyright-text p {
+  margin: 0;
+  font-size: 10px;
+  color: #fff;
+}
+
+.copyright-text p a{
+  color: #fff;
+  padding: 0px 10px;
+}
+.footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
+}
+.footer-menu li:hover a{
+  color: #ff5e14;
+}
+.footer-menu li a {
+  font-size: 14px;
+  color: #878787;
+}
+
+.mob-hr-devider-bottom hr{display: none;}
+
+
+/*-----------------------------------------
+                Media Query                               
+------------------------------------------*/
+
+@media (max-width: 500px) {
+
+    /*----------Footer -----------*/
+    #footer .footer-section{margin: 20px;}
+    #footer .footer-text p {font-size: 17px;font-weight: 500;}
+    #footer .footer-widget{margin-top: 50px;}
+    #footer .footer-social-icon {margin-top: 50px;}
+    #footer .mob-footer-img{display: block;}
+    #footer .desk-footer-img{display: none;}
+    .university-logo {
+        float: none;
+        margin-top: 5rem;
+    }
+    #footer .mob-footer-address{
+        display: block;
+        color: #B90202;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 40px;
+        position: relative;
+    }
+    #footer .copyright-text p{padding-right: 10px;}
+    #footer .all-right{display: none;}
+    #footer .desk-footer-address{display: none;}
+    #footer .design_develope{ margin-top: 4rem;text-align: left;}
+    .hr-devider-bottom{display: none;}
+    .hr-devider-top hr { margin-top: 90px;margin-bottom: 0;}
+    .mob-hr-devider-bottom hr{display: block;border-top: unset; border-bottom: 1px solid #696969!important;}
+}
+
+/*Added by me*/
+
+/*START Index page css*/
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+
+   .modal-content{
+   background-image: url("../images/home-drp.png");
+   background-size: cover;
+   }
+   .dropdown-menu {
+   position: absolute;
+   text-align: left;
+   }
+   
+   @media (max-width: 500px) {
+   body{ 
+   background-image: url('../images/home-drp.png')!important;
+   background-size: 100%!important;
+   background-repeat: no-repeat!important;
+   }
+   #header{background-image: unset;}
+   .dropdown-menu {
+   position: inherit;
+   text-align: left!important;
+   }
+   .copyright-text .copy-text::after{
+  content: "\a";
+  white-space: pre;
+}
+   }
+   @media only screen   
+   and (orientation : portrait)   
+   and (-webkit-min-device-pixel-ratio: 1)   
+   and (min-device-width : 768px)   
+   and (max-device-width : 1007px)  
+   { 
+   #header .container{width: unset;}
+   #navbar-main .navbar-nav>li>a {
+   padding: 15px 18px!important;
+   }
+   #booking {padding: 0px;}
+   #booking .row {
+   border: none;
+   }
+   .university-logo {
+   float: left;
+   margin: 30px 0px;
+   }
+   #footer .design_develope p{text-align: left;margin: 10px 0px;}
+   #booking .book-img{padding-right: 15px; padding-left: 15px;}
+   }
+
+   .mobile-menu{
+    display: none;
+}
+/*END Index page css*/
+
+
+/*START Mobile menu css*/
+@media only screen and (min-width: 800px){
+    .desktop-menu{
+        display: block !important;
+    }
+    .mobile-menu{
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 799px){
+    .desktop-menu{
+        display: none !important;
+    }
+    .mobile-menu{
+        display: block !important;
+    }
+}
+/*END Mobile menu css*/

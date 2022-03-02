@@ -1,0 +1,110 @@
+/*--------------- Blog -------------------------*/
+
+#blog img {
+    width: 100%;
+}
+
+#blog .heading {
+    margin-top: 70px;
+}
+
+#blog small {
+    position: absolute;
+    top: 10px;
+    left: 39px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#blog .blog-box {
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+#blog .b-maintext {
+    position: absolute;
+    top: 27%;
+    left: 10%;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 27px;
+    text-transform: uppercase;
+}
+
+#blog .blog-box img {
+    cursor: pointer;
+    opacity: 1;
+    transition: all 1s ease;
+}
+
+#blog .blog-box:hover img {
+    opacity: .5;
+}
+
+.b-arrow {
+    position: absolute;
+    bottom: 0px;
+    left: 15px;
+    background: #fff;
+    padding: 10px 14px;
+    color: black; /*added by me*/
+}
+
+#blog .list-wrapper {
+    transition: height width 1s ease;
+}
+
+
+/*----------------------------------------------*/
+
+.simple-pagination ul {
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+    /*text-align: center;*/
+}
+
+.simple-pagination li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.simple-pagination li a,
+.simple-pagination li span {
+    color: #fff;
+    padding: 5px 10px;
+    text-decoration: none;
+    border: 1px solid #14141400;
+    background-color: #14141400;
+    font-weight: 600;
+    /*box-shadow: 0px 0px 10px 0px #EEE;*/
+}
+
+.simple-pagination .current {
+    color: #a82116;
+    background-color: #14141400;
+    border-color: #14141400;
+    font-weight: 700;
+}
+
+.simple-pagination .prev.current,
+.simple-pagination .next.current {
+    background: #14141400;
+    display: none;
+}
+
+.simple-pagination .prev {
+    display: none;
+}
+
+.simple-pagination .next {
+    display: none;
+}
+
+/*Added by me */
+.event-manager-pagination
+{
+    display: none !important;
+}

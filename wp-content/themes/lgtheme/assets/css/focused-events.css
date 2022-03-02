@@ -1,0 +1,89 @@
+
+/*-----------------------------
+        focus events 
+-------------------------------*/
+
+#focused-events{
+    /*padding: 50px;*/
+}
+
+.heading {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 35px;
+    letter-spacing: 4px;
+}
+
+.card{background: #141413;margin-bottom: 30px;}
+
+.card-img {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  width: 100%;
+}
+
+.card-title {
+    letter-spacing: 1px;
+    margin-top: 0px;
+    margin-bottom: 0.3rem;
+    color: #D10000;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btn-book{
+    width: 100%; 
+    color: #fff;
+    margin-top: 3rem;
+    padding: 15px;
+    font-weight: 700!important;
+    background: #141414;
+    border-radius: 0;
+    margin-bottom: 10px;}
+
+.btn-book:hover{
+    background-color: #D10000;
+    color: #fff!important;     
+    font-weight: 700;
+}
+
+
+.card-text{margin-top: 10px;font-weight: 600;font-size:16px ;}
+.card-text span{font-size: 14px;}
+.card-time{
+    float: right;
+    background: #D10000;
+    padding: 2px 10px;
+}
+
+
+#focused-events .btn-book: hover{color: #fff; }
+.card-body{color: #fff; padding: 0px 10px;background: #000;}
+
+.card-img-overlay a{color: #fff;padding-left: 0;}
+
+.cat {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.fa-users {
+  margin-left: 1rem;
+}
+
+.card-footer {
+  font-size: 0.8rem;
+}
+
+
+@media (max-width: 500px) {
+
+    /*----- focused events-----*/
+    
+    #focused-events { /*padding: unset;*/ padding: 0px 10px;}
+    #focused-events .card { padding-bottom: 25px;}
+/*    #focused-events .heading{font-size: 22px;}*/
+
+}

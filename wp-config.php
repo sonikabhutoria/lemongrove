@@ -26,7 +26,7 @@ define( 'DB_NAME', 'lemongrove' );
 define( 'DB_USER', 'root' );
 
 /** Database password */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', '5w@pdpr0p' );
 
 /** Database hostname */
 define( 'DB_HOST', 'localhost' );

@@ -1,23 +1,108 @@
-<?php $venue = get_post($venue_id); ?>
+<?php 
+
+global $post;
+$post_slug = $post->post_name;
+
+if($post_slug == "lemon-grove")
+{
+    $color = "#6C5E93";
+}
+else if($post_slug == "the-ram-bar")
+{
+    $color = "#738626";
+}
+else if($post_slug == "great-hall")
+{
+    $color = "#BB9650";
+}
+else if($post_slug == "forum-kithcen")
+{
+    $color = "#FF9300";
+}
+
+
+$venue = get_post($venue_id); 
+if( get_field('background_image') ){
+    $file = get_field('background_image');
+    $file_url = $file['url'];
+}
+if( get_field('mobile_background_image') ){
+    $mb_file = get_field('mobile_background_image');
+    $mobile_file_url = $mb_file['url'];
+} 
+
+?>
+<style>
+    body{
+        background-image: url(<?php echo $file_url;?>);
+        background-size: 100%!important;
+        background-repeat: no-repeat!important;
+        background-color:#141414 ;
+        font-family: 'Nunito Sans'!important;
+    }
+    #aboutus {margin-top: 100px;}
+    #banner-img .logo-img{width: 8%; margin-top: 8rem;}
+    .wo-au-text-heading {color: <?php echo $color; ?>;!important;     }
+    .check-out-text { color: <?php echo $color; ?>;}
+    #booking .book-subhead{color: <?php echo $color; ?>;}
+
+    .modal-content{
+        background-image: url(<?php echo $mobile_file_url;?>);
+        background-size: cover;
+    }
+
+    #focused-events{ margin-top: 100px;}
+
+    .dropdown-menu {
+        position: absolute;
+        text-align: left;
+    }
+
+    #navbar-main .nav .active a {color: #CE000D;}
+
+    @media (max-width: 500px) {
+        body{ 
+            background-image: url(<?php echo $mobile_file_url;?>)!important;
+            background-size: 100%!important;
+            background-repeat: no-repeat!important;
+        }
+
+        #header{background-image: unset;}
+        .dropdown-menu {
+            position: inherit;
+            text-align: left!important;
+        }
+        #aboutus { margin-top: 70px;}
+        .logo-img-mob { width: 19%;}
+
+    }
+
+    .wpem-single-venue-profile-wrapper {
+        border: opx solid var(--wpem-gray-border-color) !important;
+        border-radius: 4px;
+         padding: 0px !important; 
+        margin-bottom: 30px;
+    }
+</style>
 
 <div class="wpem-single-venue-profile-wrapper" id="wpem_venue_profile">
     <div class="wpem-venue-profile">
 
         <?php do_action('single_event_listing_venue_start'); ?>
         <div class="wpem-row">
-            <div class="wpem-col-md-3">
+            <!-- <div class="wpem-col-md-3">
                 <div class="wpem-venue-logo-wrapper">
                     <div class="wpem-venue-logo">
                         <a><?php display_venue_logo('', '', $venue); ?></a>
                     </div>
                     <?php /** <div class="wpem-venue-logo-title wpem-heading-text"><a><span><?php echo $venue_name; ?></span></a></div> */ ?>
                 </div>
-            </div>
-            <div class="wpem-col-md-9 wpem-col-sm-12">
+            </div> -->
+            <div class="wpem-col-md-12 wpem-col-sm-12">
                 <div class="wpem-venue-infomation-wrapper">
-                    <div class="wpem-venue-name wpem-heading-text">
-                        <span><?php echo $venue->post_title; ?></span>
-                    </div>
+                   <!--  <div class="wpem-venue-name wpem-heading-text">
+                        <span><?php //echo $venue->post_title; ?></span>
+                    </div> -->
                     <div class="wpem-venue-description"><?php printf(__('%s', 'wp-event-manager'), get_venue_description($venue)); ?></div>
                     <div class="wpem-venue-social-links">
                         <div class="wpem-venue-social-lists">

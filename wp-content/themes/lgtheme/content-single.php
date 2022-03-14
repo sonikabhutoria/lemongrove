@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				if ( generate_show_title() ) {
 					$params = generate_get_the_title_parameters();
 
-					the_title( $params['before'], $params['after'] );
+					// the_title( $params['before'], $params['after'] );
 				}
 
 				/**

@@ -4,12 +4,12 @@
 -------------------------------*/
 
 #focused-events{
-    /*padding: 50px;*/
+    padding: 50px;  /*Changed by me padding: 50px;*/
 }
 
 .heading {
     color: #fff;
-    font-size: 30px;
+    font-size: 40px;
     font-weight: 600;
     margin-bottom: 35px;
     letter-spacing: 4px;
@@ -38,7 +38,7 @@
     color: #fff;
     margin-top: 3rem;
     padding: 15px;
-    font-weight: 700!important;
+    font-weight: 800!important;
     background: #141414;
     border-radius: 0;
     margin-bottom: 10px;}
@@ -84,6 +84,7 @@
     
     #focused-events { /*padding: unset;*/ padding: 0px 10px;}
     #focused-events .card { padding-bottom: 25px;}
-/*    #focused-events .heading{font-size: 22px;}*/
+    #focused-events .heading{font-size: 25px;}
+
 
 }

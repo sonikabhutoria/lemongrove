@@ -1,10 +1,10 @@
 /*---------------- footer --------*/
 #footer{
-    /*background: #0E0E0E;*/
+    /*background: #0E0E0E;*/ /*Changed by me*/
 }
 
 .footer-section {
-  background: #151414;
+  background: #000;
   position: relative;
 }
 .footer-cta {
@@ -124,7 +124,10 @@
   margin-bottom: 40px;
   position: relative;
 }
-.hr-devider-top hr{margin: 90px 0 !important;border-top: 1px solid #696969!important;}
+.hr-devider-top hr{
+  margin: 90px 0 !important; /*Changed by me added !imporatant*/
+  border-top: 1px solid #696969!important;
+}
 .hr-devider-bottom hr{margin: 10px 0;border-top: 1px solid #696969!important;}
 .university-logo{ float: right;}
 .footer-row{margin-top: 60px;}
@@ -173,7 +176,7 @@
   transform: rotate(-6deg);
 }
 .copyright-area{
-  background: #151414;
+  background: #000;
   padding: 40px 0;
 }
 .copyright-text p {
@@ -233,9 +236,13 @@
     .hr-devider-bottom{display: none;}
     .hr-devider-top hr { margin-top: 90px;margin-bottom: 0;}
     .mob-hr-devider-bottom hr{display: block;border-top: unset; border-bottom: 1px solid #696969!important;}
+    .copyright-text .copy-text::after {
+      content: "\a";
+      white-space: pre;
+    }
 }
 
-/*Added by me*/
+/*Added by me */
 
 /*START Index page css*/
 *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
@@ -292,14 +299,13 @@
 }
 /*END Index page css*/
 
-
 /*START Mobile menu css*/
 @media only screen and (min-width: 800px){
     .desktop-menu{
         display: block !important;
     }
     .mobile-menu{
-        display: none !important;
+        display: none !important; 
     }
 }
 
@@ -308,7 +314,17 @@
         display: none !important;
     }
     .mobile-menu{
-        display: block !important;
+        display: none !important;/*Changed by me display: block !important;*/
     }
 }
 /*END Mobile menu css*/
+
+.event-manager-pagination
+{
+    display: none !important;
+}
+
+/*START about-us page css from html page*/
+/*.logo-img{width: 25%;}  */
+/*END about-us page css from html page*/
+

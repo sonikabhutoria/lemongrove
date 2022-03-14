@@ -25,11 +25,11 @@ body{font-family: 'Nunito Sans'!important;background-color: #141414;}
 
 #banner-img{
     /*text-align: center;*/
-    padding: 30px 50px;}
+    padding: 30px 42px;}
 
 #header h1{     
-    font-size: 73px;
-    font-weight: 600;
+    font-size: 80px;
+    font-weight: 800;
     padding: 0px 30px;
     letter-spacing: 4px;
     color: #fff;
@@ -39,25 +39,29 @@ body{font-family: 'Nunito Sans'!important;background-color: #141414;}
 
 /*------------- Navbar -----------*/
 
-.navbar-text{font-size: 18px;}
+.navbar-text{}
 #subnavbar a {color: #fff;}
-#subnavbar .navbar-text{color: #fff!important;}
+#subnavbar .navbar-text{font-size: 21px;color: #fff!important;font-weight: 700;margin: 13px 30px;}
+#subnavbar .navbar-text-phone {
+    font-size: 21px;
+    color: #fff!important;
+    font-weight: 700;
+    margin: 13px 45px;
+}
 #mob-nav{display: none;}
 
 .caret {  display: none!important;}
 
 #navbar-main{
-  /*  border-top: 1px solid;
-    border-bottom: 1px solid;*/
     padding: 0px;
     border-radius: 0;
 }
 
 #navbar-main .navbar-nav>li>a {
-    padding: 15px 87px;
+    padding: 15px 85px;
     color: #fff;
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 65px;
 }
 
@@ -103,10 +107,11 @@ body{font-family: 'Nunito Sans'!important;background-color: #141414;}
 .dropdown-menu>.drp-forum_kitchen>a:hover {color: #FF9300!important;}
 
 .dropdown-menu{    
-    background-color: #0000004f!important;
+    background-color: #0000008c!important;
     width: 100%;
     text-align: center!important;
     margin-bottom: 30px;
+    padding: 18px 0;
     border: none!important;
 }
 .dropdown-menu>li>a {color: #fff!important;}
@@ -125,6 +130,7 @@ body{font-family: 'Nunito Sans'!important;background-color: #141414;}
 /*---------- mov -nav ----*/
 
 .mob-header{color: #fff;}
+.mob-header span{font-weight: 700;}
 
 #mob-nav .mob-header{    padding: 15px 0;}
 
@@ -194,7 +200,7 @@ body{font-family: 'Nunito Sans'!important;background-color: #141414;}
 
 .modal-header h4{font-size: 16px;}
 
-#mob-nav .mob-header{    padding: 15px 0;}
+#mob-nav .mob-header{    padding: 15px 13px;}
 
 #mob-nav .mob-header .btn-bar{float: right; background: transparent;}
 
@@ -295,14 +301,31 @@ body{font-family: 'Nunito Sans'!important;background-color: #141414;}
                 Media Query                               
 ------------------------------------------*/
 
+@media (max-width: 1500px) {
+    #header .container {
+        max-width: 1349px;
+    }
+    
+    #navbar-main .navbar-nav>li>a {
+        padding: 15px 66px;
+    }
+    
+    .container {
+        width: 1066px;
+    }
+}
+
+
+
 @media (max-width: 500px) {
 
 .container {
+    width: unset;
     padding-right: 30px;
     padding-left: 30px;}
     /*----------navbar-------*/
     .dropdown-menu { position: inherit;text-align: left!important;}
-    #mob-nav{display: block;}
+    #mob-nav{display: block;    padding: 0;}
     #subnavbar{display: none;}
     #navbar-main{display: none;}
     #mob-navbar-main .navbar-brand{
@@ -350,10 +373,10 @@ body{font-family: 'Nunito Sans'!important;background-color: #141414;}
 
 
 
-    .heading { font-size: 28px;margin-top: 30px;margin-bottom: 0px;}
+    .heading { font-size: 28px!important;margin-top: 30px;margin-bottom: 0px; margin-left: 0!important;}
     #banner-img {
         /*text-align: center;*/
-        padding: 30px 20px;
+            padding: 20px 16px;
     }
     .dropdown-menu{margin-bottom: 30px!important;}
 
@@ -375,15 +398,15 @@ body{font-family: 'Nunito Sans'!important;background-color: #141414;}
     #header .container{width: unset;}
 
     #header h1 {
-        font-size: 30px;
-        font-weight: 600;
+        font-size: 29px;
+        font-weight: 800;
         padding: 0px 0px;
         float: left;
         letter-spacing: 1px;
     }
 
     .logo-img { display: none; }
-    .logo-img-mob { display: block; width: 100%;}
+    .logo-img-mob { display: block; width: 60%;}
 
 }
 
@@ -411,4 +434,14 @@ and (max-device-width : 1007px)
     #footer .design_develope p{text-align: left;margin: 10px 0px;}
 
     #booking .book-img{padding-right: 15px; padding-left: 15px;}
+}
+
+/*Added by me*/
+
+.whats-heading h1{     
+    font-size: 80px;
+    font-weight: 800;
+    padding: 0px 30px;
+    letter-spacing: 4px;
+    color: #fff;
 }

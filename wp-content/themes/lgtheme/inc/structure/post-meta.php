@@ -18,6 +18,7 @@ if ( ! function_exists( 'generate_content_nav' ) ) {
 	 * @param string $nav_id The id of our navigation.
 	 */
 	function generate_content_nav( $nav_id ) {
+
 		global $wp_query, $post;
 
 		// Don't print empty markup on single pages if there's nowhere to navigate.

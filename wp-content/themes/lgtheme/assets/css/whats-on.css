@@ -1,0 +1,44 @@
+body{
+	    background-image: url('../images/home-bg-desk.png');
+        background-size: 100%!important;
+        background-repeat: no-repeat!important;
+        background-color:#141414 ;
+        font-family: 'Nunito Sans'!important;
+	}
+	
+	.logo-img{
+		width: 25%;
+		float: left; /*Changed by me Added*/
+		margin-left: 40px; /*Changed by me Added*/
+	}	
+	
+	.modal-content{
+	    background-image: url("../images/home-drp.png");
+	    background-size: cover;
+	}
+
+    #focused-events{ margin-top: 100px;}
+
+.dropdown-menu {
+    position: absolute;
+    text-align: left;
+}
+
+	#navbar-main .nav .active a {color: #CE000D;}
+
+	@media (max-width: 500px) {
+	    body{ 
+	    	background-image: url('../images/home-drp.png')!important;
+	    	background-size: 100%!important;
+	    	background-repeat: no-repeat!important;
+	    }
+
+	    #header{background-image: unset;}
+		.dropdown-menu {
+		    position: inherit;
+		    text-align: left!important;
+		}
+
+	    .logo-img { width: 80%;}
+
+	}

@@ -1,6 +1,6 @@
 
 /*---------------- Booking ---------*/
-#booking{margin-top: 98px;}
+#booking{margin-top: 98px;margin-bottom: 98px;}
 #booking .row{border: 16px solid #fff;}
 #booking .booking-col-text{padding: 30px;}
 #booking h1{
@@ -32,7 +32,11 @@
 
     /*---------booking------*/
 
-    #booking {margin: 25px; }
+    #booking {
+        /*margin: 25px; Changed by me commented */
+        margin-left: 0px; /*Changed by me added*/
+        margin-right: 0px /*Changed by me added*/
+    }
     #booking h1 {font-size: 28px;letter-spacing:4px;}
     #booking .row{border: none;}
     #booking .mob-booking{display: block;}
@@ -42,5 +46,5 @@
     #booking .mob-booking-col-text{display: block;}
     #booking .book-info {letter-spacing: 1px; font-size: 14px;}
     #booking .book-img{margin-top: 40px;}
-
+    #booking .book-subhead {margin-top: 6rem;}
 }

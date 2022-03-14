@@ -31,7 +31,7 @@
 }
 
 #navbar-main .navbar-nav>li>a {
-    padding: 15px 90px;
+    padding: 15px 66px;/*Changed by me  15px 90px;*/
     color: #fff;
     font-size: 22px;
     font-weight: 600;
@@ -40,19 +40,19 @@
 
 .navbar-nav>li {
     float: left;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
+    /*border-top: 1px solid; */ /*Changed by me*/
+    /*border-bottom: 1px solid;*/ /*Changed by me*/
 }
 
 #navbar-main .nav>li>a:focus,
 .nav>li>a:hover {
     background-color: #01010173!important;
-    /*color: #CE000D!important; /*Changed by me*/ */
+    /*color: #CE000D!important;*/ /*Changed by me*/
 }
 
 #navbar-main .nav .active a {
     background-color: #01010173!important;
-    /*color: #CE000D!important; /*Changed by me*/*/
+    /*color: #CE000D!important;*/ /*Changed by me*/
 }
 
 #navbar-main .navbar-toggle .icon-bar {
@@ -311,7 +311,7 @@
 }
 
 .dropdown-menu {
-    position: absolute; /*Changed by me*/
+     position: absolute; /*Changed by me position: inherit; */
 }
 
 #cssmenu>ul>li a:hover {
@@ -373,7 +373,9 @@
 /*----------------1366 -----------*/
 
 @media (max-width: 1500px) {
-    #navbar-main .navbar-nav>li>a { padding: 15px 75px!important;}
+    #navbar-main .navbar-nav>li>a { 
+        padding: 15px 66px!important;/*Changed by me 15px 75px!important*/
+    }
     #our-venues .ov-box .ov-2 img {
         width: 158px;
     }

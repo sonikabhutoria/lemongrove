@@ -27,6 +27,7 @@ if ( ! function_exists( 'generate_navigation_position' ) ) {
 		<nav class="navbar" id="navbar-main">
 			<div <?php generate_do_attr( 'inside-navigation' ); ?>>
 				<?php
+				
 				/**
 				 * generate_inside_navigation hook.
 				 *
@@ -80,7 +81,7 @@ if ( ! function_exists( 'generate_navigation_position' ) ) {
 						'menu_class' => 'desktop-menu',
 						'fallback_cb' => 'generate_menu_fallback',
 						'items_wrap' => '<ul id="%1$s" class="%2$s ' . join( ' ', generate_get_element_classes( 'menu' ) ) . '" >%3$s</ul>',
-						'items_wrap' => '<ul id="%1$s" class="%2$s  nav navbar-nav" style="width: 1500px;margin-left: 35px;">%3$s</ul>',
+						'items_wrap' => '<ul id="%1$s" class="%2$s  nav navbar-nav">%3$s</ul>', //style="width: 1500px;margin-left: 35px;"
 						'walker' => new IBenic_Walker()
 					)
 				);
@@ -94,21 +95,66 @@ if ( ! function_exists( 'generate_navigation_position' ) ) {
 				?>
 			</div>
 		</nav>
-		<?php
 
-		if ( function_exists('has_nav_menu') && has_nav_menu('mobile-menu') ) {
-		    wp_nav_menu( array(
-		      'depth' => 6,
-		      'sort_column' => 'menu_order',
-		      'container' => 'ul',
-		      'menu_id' => 'main-nav',
-		      'menu_class' => 'nav mobile-menu',
-		      'theme_location' => 'mobile-menu',
-		      'walker' => new IBenic_Walker()
-		    ) );
-		    } else {
-		       echo "<ul class='nav mobile-menu'> <font style='color:red'>Mobile Menu has not been set</font> </ul>";
+		<?php
+		//START For setting header_image and header_title on pages (Like:whatson page)
+		global $wp_query;
+		$post = $wp_query->get_queried_object();
+		$post_slug = $post->post_name;
+
+		$venue_array  = array("lemon-grove","the-ram-bar","great-hall","forum-kithcen");
+
+		if( is_page('whats-on') || in_array($post_slug,$venue_array) ) 
+		{
+					?>
+					<style>
+						/*.logo-img{
+							width: 25%;
+							float: left;
+							margin-left: 40px;
+						}*/
+						.banner-img{
+						text-align: unset !important;
+    					padding-left: 49px !important;
+    					}
+					</style>
+					<div class="row">
+						<div class="col-md-12" id="banner-img">
+
+							<?php if( get_field('header_image') ): 
+								$file = get_field('header_image');
+								$file_url = $file['url'];
+							?>
+								<img src="<?php echo $file_url;?>" class="logo-img">
+							<?php endif; ?>
+							
+							<img src="images/mob-logo.svg" class="logo-img-mob">
+						</div>
+						<div class="col-md-12 whats-heading">
+							<h1><?php if( get_field('header_title') ):
+								the_field('header_title');
+								endif; ?>
+							</h1>
+						</div>
+					</div>
+				<?php
 		}
+		//END For setting header_image and header_title on pages (Like:whatson page)
+		
+
+		// if ( function_exists('has_nav_menu') && has_nav_menu('mobile-menu') ) {
+		//     wp_nav_menu( array(
+		//       'depth' => 6,
+		//       'sort_column' => 'menu_order',
+		//       'container' => 'ul',
+		//       'menu_id' => 'main-nav',
+		//       'menu_class' => 'nav mobile-menu',
+		//       'theme_location' => 'mobile-menu',
+		//       'walker' => new IBenic_Walker()
+		//     ) );
+		//     } else {
+		//        echo "<ul class='nav mobile-menu'> <font style='color:red'>Mobile Menu has not been set</font> </ul>";
+		// }
 
 
 		/**

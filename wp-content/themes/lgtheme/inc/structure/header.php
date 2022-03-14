@@ -32,21 +32,31 @@ if ( ! function_exists( 'generate_construct_header' ) ) {
 				<!-- subnav -->
 				<div class="col-md-12" id="subnavbar">
 					<nav class="navbar navbar-light bg-light">
-					  <a href="index.html"><span class="navbar-text">LIVE @ EXETER</span></a>
+					  <a href="<?php echo home_url();?>"><span class="navbar-text">LIVE @ EXETER</span></a>
 					  <span class="navbar-text pull-right">
 					    01392 723511
 					  </span>
 					</nav>
 				</div>
 
-				<div class="col-md-12" id="banner-img">
-                  <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/logo.svg';?>" class="logo-img">
-                  <img src="<?php echo get_stylesheet_directory_uri().'/assets/images/mob-logo.svg';?>" class="logo-img-mob">
-               </div>
+				<?php 
+
+				if(is_page('home-page')) 
+				{
+					?>
+					<div class="col-md-12" id="banner-img">
+					<img src="<?php echo get_stylesheet_directory_uri().'/assets/images/logo.svg';?>" class="logo-img">
+					<img src="<?php echo get_stylesheet_directory_uri().'/assets/images/mob-logo.svg';?>" class="logo-img-mob">
+					</div>
+				<?php
+			}
+				?>
+
+				
 
 			<div <?php generate_do_attr( 'inside-header' ); ?>>
 
-				<?php
+				<?php 
 				/**
 				 * generate_before_header_content hook.
 				 *

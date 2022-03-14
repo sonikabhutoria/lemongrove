@@ -1,7 +1,7 @@
 
 /*------------- Our Venues --------*/
 #our-venues{
-    /*padding: 50px; */
+    /*padding: 50px;*/ /*Changed by me padding: 50px; */
     color: #fff;
 }
 #our-venues .col-md-6{ margin-top: 20px;}
@@ -40,7 +40,7 @@
 
 @media (max-width: 500px) 
 {
-    #our-venues img{ /*margin: 56px!important; changed by me*/}
+    /*#our-venues img{ margin: 56px!important;}*/ /*Changed by me*/
     #our-venues .ov-box .ov-1 img{width: 220px!important; margin: 120px auto!important;}
     #our-venues .ov-box .ov-2 img{width: 130px!important;}
     #our-venues { padding: 0px 10px; }

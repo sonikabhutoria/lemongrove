@@ -1,38 +1,55 @@
-
 /*------------- about us -------------*/
-#aboutus {margin-top: 100px;}
-#aboutus .heading{ margin-top: 60px; margin-bottom: 8px;}
 
-.au-img{width: 100%;margin: 20px 0;}
+#aboutus {
+ /*   margin-top: 100px;*/
+}
 
-.wo-au-text-heading{
+#aboutus .heading {
+    margin-top: 60px;
+    margin-bottom: 8px;
+}
+
+.au-img {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.wo-au-text-heading {
     color: #D10000;
     margin-bottom: 2rem;
     margin-top: 5rem;
     font-weight: 600;
 }
 
-.wo-au-text{
+.wo-au-text {
     color: #fff;
     margin-bottom: 40px;
     letter-spacing: 1px;
     font-size: 15px;
 }
-.desk-au-img{width: 100%;}
-.mob-au-img{display: none;}
+
+.desk-au-img {
+    width: 100%;
+}
+
+.mob-au-img {
+    display: none;
+}
+
+#aboutus .btn-mob{display: none;}
 
 /*--------------- check-out---------*/
 
-#aboutus .check-out{
-    text-align: center;
+#aboutus .check-out {
+/*    text-align: center;*/
     margin: 60px 0;
     color: #fff;
     background: #000;
     padding: 35px 110px;
-    font-weight: 600;
+    font-weight: 800;
 }
 
-#aboutus .btn-whatson{
+#aboutus .btn-whatson {
     background: #141413;
     padding: 14px 95px!important;
     border-radius: 0px!important;
@@ -43,18 +60,36 @@
 /*-----------------------------------------
                 Media Query                               
 ------------------------------------------*/
+@media (max-width: 1500px) {
+.wo-au-text{letter-spacing: 0px;}
+}
 
 @media (max-width: 500px) {
-
     /*---------About -------*/
-    #aboutus {    margin-top: 0px;}
-    .desk-au-img{display: none;}
-    .mob-au-img{display: block;width: 100%;}
-    #aboutus .heading{display: none;}
-    #aboutus { padding: 15px; }
-
-
+    #aboutus {
+        margin-top: 0px;
+    }
+    .desk-au-img {
+        display: none;
+    }
+    .mob-au-img {
+        display: block;
+        width: 100%;
+    }
+    #aboutus .heading {
+        display: none;
+    }
+    #aboutus {
+        padding: 15px;
+    }
     /*--------- check out --------*/
-    #aboutus .check-out { padding: 35px 30px;}
-    #aboutus .btn-whatson { margin-top: 20px;}
+    #aboutus .check-out {
+        padding: 35px 16px;
+    }
+    #aboutus .btn-whatson {
+        margin-top: 20px;
+    }
+
+    #aboutus  .btn-desk{display: none;}
+    #aboutus  .btn-mob{display: block;}
 }

@@ -112,39 +112,65 @@ require $theme_dir . '/inc/structure/navigation.php';
 require $theme_dir . '/inc/structure/post-meta.php';
 require $theme_dir . '/inc/structure/sidebars.php';
 
-
-
 //START CSS AND JS binding to theme
 function themeslug_enqueue_style() {
-    // wp_enqueue_style( 'about_us', get_stylesheet_directory_uri()."/assets/css/about_us.css" );
     wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri()."/assets/css/bootstrap.min.css", false );
     wp_enqueue_style( 'font-awesome', "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", false );
     wp_enqueue_style( 'our-font', "https://fonts.googleapis.com/css?family=Nunito Sans:400,700,800", false );
     wp_enqueue_style( 'blog', get_stylesheet_directory_uri()."/assets/css/blog.css" );
-    wp_enqueue_style( 'header', get_stylesheet_directory_uri()."/assets/css/header.css", false );
+    wp_enqueue_style( 'intern_header', get_stylesheet_directory_uri()."/assets/css/intern-header.css", false );
+
     wp_enqueue_style( 'focused_events', get_stylesheet_directory_uri()."/assets/css/focused-events.css", false );
     wp_enqueue_style( 'booking', get_stylesheet_directory_uri()."/assets/css/booking.css", false );
-    wp_enqueue_style( 'our_venues', get_stylesheet_directory_uri()."/assets/css/our_venues.css", false );
+    wp_enqueue_style( 'about_us', get_stylesheet_directory_uri()."/assets/css/about_us.css" );
+
+
+    if(is_page('home-page'))
+    {
+    	wp_enqueue_style( 'our_venues', get_stylesheet_directory_uri()."/assets/css/our_venues.css", false );
+    	wp_enqueue_style( 'header', get_stylesheet_directory_uri()."/assets/css/header.css", false );	
+    }
     wp_enqueue_style( 'footer', get_stylesheet_directory_uri()."/assets/css/footer.css", false );
     // wp_enqueue_style( 'desk_navbar', get_stylesheet_directory_uri()."/assets/css/desk_navbar.css", false );
-    // wp_enqueue_style( 'intern_header', get_stylesheet_directory_uri()."/assets/css/intern-header.css", false );
-    // wp_enqueue_style( 'inter_our_venues', get_stylesheet_directory_uri()."/assets/css/intern-our_venues.css", false );
+    if(is_page('whats-on'))
+    {
+    	wp_enqueue_style( 'inter_our_venues', get_stylesheet_directory_uri()."/assets/css/intern-our_venues.css", false );
+    	wp_enqueue_style( 'whats-on', get_stylesheet_directory_uri()."/assets/css/whats-on.css", false );
+    	// wp_dequeue_style( WP_CONTENT_DIR.'/plugins/mobile-menu/cssmobmenu-css' );
+    	// wp_dequeue_style( 'cssmobmenu' );
+    }
 }
  
 function themeslug_enqueue_script() {
     wp_enqueue_script( 'bootstrap', "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js", false );
     wp_enqueue_script( 'myjquery', "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js", false );
-    wp_enqueue_script( 'myjquery', "https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js", false );
+    wp_enqueue_script( 'myjquery-pagination', "https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js", false );
     wp_enqueue_script( 'pagingnation', get_stylesheet_directory_uri()."/assets/js/pagingnation.js", false );
     // wp_enqueue_script( 'myjquery', get_stylesheet_directory_uri()."/assets/js/jquery.min.js", false );
     wp_enqueue_script( 'dropdown-arrow', get_stylesheet_directory_uri()."/assets/js/dropdown-arrow.js", false );
     // wp_enqueue_script( 'logo', get_stylesheet_directory_uri()."/assets/js/logo.js", false );
 }
  
-add_action( 'wp_head', 'themeslug_enqueue_style' );
-add_action( 'wp_footer', 'themeslug_enqueue_script' );
+add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_style' );
+add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_script' );
 //END CSS AND JS binding to theme
 
+
+
+// global $wp_query,$post;
+
+// echo "dd".$post->post_name;
+// $post1 = $wp_query->get_queried_object();
+// echo "post".$post_slug_name = $post1->post_name;
+
+// echo "module".$module_slug = $module->post_name;
+// echo  "here".$post_title; 
+
+// echo "hi".get_post_type();
+
+// echo "post_format".get_post_format();
+
+// echo "title".the_title();
 
 //START SET lastest 4 blog in menu
 add_filter( 'wp_get_nav_menu_items', 'custom_nav_menu_items2', 20, 2 );
@@ -179,16 +205,18 @@ function custom_nav_menu_items2( $items, $menu ) {
     			'posts_per_page' => '3'
 		    );
 
-		    $query = new WP_Query( $args );
-		    if( $query->have_posts() ){
+		    $loop = new WP_Query( $args );
+		    if( $loop->have_posts() ){
 		       $i = 101;
-		        while( $query->have_posts() ){
-		            $query->the_post();
+		        while( $loop->have_posts() ){
+		            $loop->the_post();
+		            $title = substr(get_the_title(), 0, 15);
 
-		        	$items[] = _custom_nav_menu_item( get_the_title(), get_post_permalink(), $i++, $val->ID );
+		        	$items[] = _custom_nav_menu_item($title , get_post_permalink(), $i++, $val->ID );
 		        }
 		    }
-		    wp_reset_postdata();
+		    // wp_reset_postdata();
+		    wp_reset_query();
 
 			//$items[] = _custom_nav_menu_item( 'First Child', '/some-url', 101, $val->ID );
 			//$items[] = _custom_nav_menu_item( 'Second Child', '/some-url', 102, $val->ID );
@@ -218,9 +246,15 @@ class IBenic_Walker extends Walker_Nav_Menu {
 	$permalink = $item->url;
 	$menu_item_parent = $item->menu_item_parent;
 
-	if ( in_array("menu-item-has-children",$item->classes) ) {
+	if ( in_array("menu-item-has-children",$item->classes) ) 
+	{
 		
 		array_push($item->classes,'dropdown');
+	}
+
+	if(in_array("current_page_item",$item->classes) )
+	{
+		array_push($item->classes,'active');
 	}
 
 	// if($menu_item_parent != 0)
@@ -267,11 +301,11 @@ function display_custom_post_type(){
 
     $string = '';
     $string .= '<section id="blog">';
-    $query = new WP_Query( $args );
-    if( $query->have_posts() ){
+    $loop = new WP_Query( $args );
+    if( $loop->have_posts() ){
         $string .= '<div class="row list-wrapper">';
-        while( $query->have_posts() ){
-            $query->the_post();
+        while( $loop->have_posts() ){
+            $loop->the_post();
 
      		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); 
 
@@ -286,7 +320,8 @@ function display_custom_post_type(){
         $string .= '</div></a>';
         $string .= '</section>';
     }
-    wp_reset_postdata();
+    // wp_reset_postdata();
+    wp_reset_query();
     return $string;
 }
 //END Home page blog section
@@ -303,15 +338,20 @@ add_action( 'init', 'wdm_register_mobile_menu' );
 
 // load the JS file
 function wdm_mm_toggle_scripts() {
-    wp_enqueue_script( 'wdm-mm-toggle', get_stylesheet_directory_uri() . '/js/mobile-menu-toggle.js', array('jquery') );
+    // wp_enqueue_script( 'wdm-mm-toggle', get_stylesheet_directory_uri() . '/js/mobile-menu-toggle.js', array('jquery') );
 }
 add_action( 'wp_enqueue_scripts', 'wdm_mm_toggle_scripts' );
 
 //END For Mobile menu
 
 
-//START SET main menu css according to design
+// //START SET main menu css according to design
 class IBenic_Walker_MobileMenu extends Walker_Nav_Menu {
+  
+  function start_lvl( &$output, $depth = 0, $args = array() ) {
+	$indent = str_repeat( "\t", $depth );
+	$output .= "\n$indent<ul role=\"menu\" class=\"dropdown-menu\">\n";
+  }	
     
   function start_el(&$output, $item, $depth=0, $args=array(), $id = 0) {
   	// echo '<pre>';print_r($item);
@@ -322,21 +362,32 @@ class IBenic_Walker_MobileMenu extends Walker_Nav_Menu {
 	$permalink = $item->url;
 	$menu_item_parent = $item->menu_item_parent;
 
+	$add_dropdown_toggle = "";
+	$add_arrow_down = "";
 	if ( in_array("menu-item-has-children",$item->classes) ) {
 		
 		array_push($item->classes,'dropdown');
+		$add_dropdown_toggle = '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">';
+		$add_arrow_down = '<i class="fa fa-arrow-down"></i> <span class="caret"></span>';
 	}
-
-	// if($menu_item_parent != 0)
-	// {
-	// 	array_push($item->classes,'drp-lemon');
-	// }
+	if(in_array("current_page_item",$item->classes) )
+	{
+		array_push($item->classes,'active');
+	}
 		
   	  $output .= "<li class='" .  implode(" ", $item->classes) . "'>";
-        
+       
+
       //Add SPAN if no Permalink
       if( $permalink && $permalink != '#' ) {
-      	$output .= '<a href="' . $permalink . '">';
+      	if($add_dropdown_toggle != "")
+      	{
+      		$output .= $add_dropdown_toggle;	
+      	}
+      	else
+      	{
+      		$output .= '<a href="' . $permalink . '">';
+      	}
       } else {
       	$output .= '<span>';
       }
@@ -348,7 +399,14 @@ class IBenic_Walker_MobileMenu extends Walker_Nav_Menu {
       }
 
       if( $permalink && $permalink != '#' ) {
-      	$output .= '</a>';
+      	if($add_arrow_down != "")
+      	{
+      		$output .= $add_arrow_down."</a>";
+      	}
+      	else
+      	{
+      		$output .= '</a>';
+      	}
       } else {
       	$output .= '</span>';
       }
@@ -357,7 +415,53 @@ class IBenic_Walker_MobileMenu extends Walker_Nav_Menu {
   }
     
 }
-//END Home page blog section
+// //END Home page blog section
+
+
+//START Whats on page venue section
+add_shortcode( 'whatonpagevenues', 'display_venue_post_type' );
+
+function display_venue_post_type(){
+    $args = array(
+        'post_type' => 'event_venue',
+        'post_status' => 'publish'
+    );
+
+    $string = '';
+    $string .= '<div class="container" id="our-venues" style=" width: 100%;"><div class="row our_venues-row">';
+    $loop = new WP_Query( $args );
+    if( $loop->have_posts() ){
+        while( $loop->have_posts() ){
+        	$string .= '<div class="col-sm ov-box">';
+            $loop->the_post();
+            if( get_field('whats_on_page_venue_image') ){
+				$file = get_field('whats_on_page_venue_image');
+				$file_url = $file['url'];
+            } 
+			
+
+     		// $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); 
+
+            // $string .= '<li>' . get_the_title() . '</li>';
+            $string .= '
+           	 <div class="ov-1">
+              <img src="'.$file_url.'">
+             </div>
+             <div class="ov-vm">
+	              <a href="'.get_post_permalink().'"><p>VIEW VENUE <span><i class="fa fa-arrow-right"></i></span></p></a>
+              </div>
+           </div>';
+        }
+        $string .= '</div></div>';
+    }
+    // wp_reset_3postdata();
+    wp_reset_query();
+    return $string;
+}
+//END Whats on page venue section
+
+
+
 
 
 

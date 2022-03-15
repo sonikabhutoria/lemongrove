@@ -4,6 +4,17 @@
 
 body{font-family: 'Nunito Sans'!important;background-color: #141414;}
 
+
+/*Added by me*/
+
+.whats-heading h1{     
+    font-size: 80px;
+    font-weight: 800;
+    padding: 0px 30px;
+    letter-spacing: 4px;
+    color: #fff;
+}
+
 #header .container {
         width: 1488px;
 }
@@ -322,7 +333,15 @@ body{font-family: 'Nunito Sans'!important;background-color: #141414;}
 .container {
     width: unset;
     padding-right: 30px;
-    padding-left: 30px;}
+    padding-left: 30px;
+}
+
+#aboutus .container { /*Added by me*/
+    width: unset;
+    padding-right:unset;
+    padding-left:unset;
+ } 
+
     /*----------navbar-------*/
     .dropdown-menu { position: inherit;text-align: left!important;}
     #mob-nav{display: block;    padding: 0;}
@@ -405,6 +424,14 @@ body{font-family: 'Nunito Sans'!important;background-color: #141414;}
         letter-spacing: 1px;
     }
 
+     .whats-heading h1 { /*Added by me*/
+        font-size: 29px;
+        font-weight: 800;
+        padding: 0px 0px;
+        float: left;
+        letter-spacing: 1px;
+    }
+
     .logo-img { display: none; }
     .logo-img-mob { display: block; width: 60%;}
 
@@ -436,12 +463,52 @@ and (max-device-width : 1007px)
     #booking .book-img{padding-right: 15px; padding-left: 15px;}
 }
 
-/*Added by me*/
+/*--------- ipad Medeia query -----------*/
 
-.whats-heading h1{     
-    font-size: 80px;
-    font-weight: 800;
-    padding: 0px 30px;
-    letter-spacing: 4px;
-    color: #fff;
-}
+         @media only screen and (min-width: 834px) and (max-width: 1194px)  { 
+           #header .container{width: unset;!important;}
+           .container{width: unset;}
+           .desk-au-img{display: none;}
+           .mob-au-img {display: block;}
+           #text-para{padding: 100px 40px;}
+           #blog{padding: 0px 40px;}
+           #booking{padding: 0px 50px;}
+           #booking .row{border: none;}
+           #navbar-main .navbar-nav>li>a { padding: 15px 31px;}
+           #our-venues .our_venues-row { flex-wrap: wrap;}
+           #our-venues { padding: 30px 50px;}
+           #our-venues .heading { margin-left: 15px!important;}
+           #our-venues .ov-box {
+                cursor: pointer;
+                align-self: flex-end;
+                width: 44.5%;
+                margin: 10px 20px;
+            }
+            #our-venues .heading { margin-left: 0;}
+            #our-venues .ov-box img{width: 100%;}
+            #aboutus {margin: 0 50px;}
+
+            #booking .book-img{ padding: 30px;}
+
+            #story { margin-left: 50px; margin-right: 50px;}
+
+            #our-venues-contact {
+                color: #fff;
+                margin-top: 100px;
+                margin-bottom: 90px;
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            #our-venues-contact .ov-2 .cont-ov-text {padding-bottom: 59px;}
+
+            .footer-section {padding: 0px 50px;}
+            .footer .footer-social-icon a{margin-right: 10px!important;}
+
+          } 
+
+@media (max-width: 768px)
+    .inside-article  {
+     padding: 0px !important;
+    } 
+
+

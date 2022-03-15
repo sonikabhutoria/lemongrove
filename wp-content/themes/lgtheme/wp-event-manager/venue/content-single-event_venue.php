@@ -6,18 +6,34 @@ $post_slug = $post->post_name;
 if($post_slug == "lemon-grove")
 {
     $color = "#6C5E93";
+    $banner_image_width = "width: 10% !important; margin-top: 9rem !important;";
+    $media_css = "#header h1 { font-size: 27px !important;}
+            .logo-img-mob { width:27% !important; margin-top: 3rem !important;}";
+
+    // $banner_image_width = "width: 10% !important; margin-top: 9rem !important;";
 }
 else if($post_slug == "the-ram-bar")
 {
     $color = "#738626";
+    $banner_image_width = "width: 6% !important; margin-top: 8rem !important;";
+    $media_css = "#aboutus { margin-top: 70px !important;}
+            .logo-img-mob { width: 19% !important;}";
 }
 else if($post_slug == "great-hall")
 {
     $color = "#BB9650";
+    $banner_image_width = "width: 8% !important; margin-top: 8rem !important;";
+    $media_css = "#aboutus { margin-top: 70px !important;}
+            .logo-img-mob { width: 19% !important;}
+            #header h1 { font-size: 26px !important;}";
 }
 else if($post_slug == "forum-kithcen")
 {
     $color = "#FF9300";
+    $banner_image_width = "width: 8% !important; margin-top: 8rem !important;";
+    $media_css = "#aboutus { margin-top: 0px !important;}
+            .logo-img-mob { width: 32% !important;}
+            #header h1 { font-size: 24px !important;}";
 }
 
 
@@ -41,7 +57,9 @@ if( get_field('mobile_background_image') ){
         font-family: 'Nunito Sans'!important;
     }
     #aboutus {margin-top: 100px;}
-    #banner-img .logo-img{width: 8%; margin-top: 8rem;}
+
+   #banner-img .logo-img{<?php echo $banner_image_width; ?>}
+    
     .wo-au-text-heading {color: <?php echo $color; ?>;!important;     }
     .check-out-text { color: <?php echo $color; ?>;}
     #booking .book-subhead{color: <?php echo $color; ?>;}
@@ -72,8 +90,8 @@ if( get_field('mobile_background_image') ){
             position: inherit;
             text-align: left!important;
         }
-        #aboutus { margin-top: 70px;}
-        .logo-img-mob { width: 19%;}
+
+        <?php echo $media_css; ?>
 
     }
 

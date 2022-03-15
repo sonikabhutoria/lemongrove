@@ -35,6 +35,8 @@
 }
 
 #our-venues .ov-vm span{    float: right;}
+
+#our-venues a{color: #fff;} /*Changed by me Added*/
 /*-----------------------------------------*/
 
 @media (max-width: 1500px) {

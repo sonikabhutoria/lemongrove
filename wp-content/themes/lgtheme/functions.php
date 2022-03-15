@@ -114,6 +114,13 @@ require $theme_dir . '/inc/structure/sidebars.php';
 
 //START CSS AND JS binding to theme
 function themeslug_enqueue_style() {
+	$url_arr = explode("/",$_SERVER['REQUEST_URI']);
+	if(isset($url_arr[3]) && $url_arr[3] != "")
+	{
+		$current_venue = $url_arr[3];
+	}
+    $venue_array  = array("lemon-grove","the-ram-bar","great-hall","forum-kithcen");
+
     wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri()."/assets/css/bootstrap.min.css", false );
     wp_enqueue_style( 'font-awesome', "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", false );
     wp_enqueue_style( 'our-font', "https://fonts.googleapis.com/css?family=Nunito Sans:400,700,800", false );
@@ -132,7 +139,10 @@ function themeslug_enqueue_style() {
     }
     wp_enqueue_style( 'footer', get_stylesheet_directory_uri()."/assets/css/footer.css", false );
     // wp_enqueue_style( 'desk_navbar', get_stylesheet_directory_uri()."/assets/css/desk_navbar.css", false );
-    if(is_page('whats-on'))
+
+
+
+    if(is_page('whats-on') || in_array($current_venue,$venue_array) )
     {
     	wp_enqueue_style( 'inter_our_venues', get_stylesheet_directory_uri()."/assets/css/intern-our_venues.css", false );
     	wp_enqueue_style( 'whats-on', get_stylesheet_directory_uri()."/assets/css/whats-on.css", false );
@@ -155,22 +165,6 @@ add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_style' );
 add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_script' );
 //END CSS AND JS binding to theme
 
-
-
-// global $wp_query,$post;
-
-// echo "dd".$post->post_name;
-// $post1 = $wp_query->get_queried_object();
-// echo "post".$post_slug_name = $post1->post_name;
-
-// echo "module".$module_slug = $module->post_name;
-// echo  "here".$post_title; 
-
-// echo "hi".get_post_type();
-
-// echo "post_format".get_post_format();
-
-// echo "title".the_title();
 
 //START SET lastest 4 blog in menu
 add_filter( 'wp_get_nav_menu_items', 'custom_nav_menu_items2', 20, 2 );
@@ -265,11 +259,12 @@ class IBenic_Walker extends Walker_Nav_Menu {
   	  $output .= "<li class='" .  implode(" ", $item->classes) . "'>";
         
       //Add SPAN if no Permalink
-      if( $permalink && $permalink != '#' ) {
+      if( $permalink) { //&& $permalink != '#'
       	$output .= '<a href="' . $permalink . '">';
-      } else {
-      	$output .= '<span>';
-      }
+      } 
+      // else {
+      // 	$output .= '<span>';
+      // }
        
       $output .= $title;
 
@@ -277,11 +272,12 @@ class IBenic_Walker extends Walker_Nav_Menu {
       	$output .= '<small class="description">' . $description . '</small>';
       }
 
-      if( $permalink && $permalink != '#' ) {
+      if( $permalink ) {//&& $permalink != '#' 
       	$output .= '</a>';
-      } else {
-      	$output .= '</span>';
-      }
+      } 
+      // else {
+      // 	$output .= '</span>';
+      // }
       return $output;
 
   }
@@ -424,13 +420,16 @@ add_shortcode( 'whatonpagevenues', 'display_venue_post_type' );
 function display_venue_post_type(){
     $args = array(
         'post_type' => 'event_venue',
-        'post_status' => 'publish'
+        'post_status' => 'publish',
+        'orderby' => 'ID', 
+        'order' => 'ASC'
     );
 
     $string = '';
     $string .= '<div class="container" id="our-venues" style=" width: 100%;"><div class="row our_venues-row">';
     $loop = new WP_Query( $args );
     if( $loop->have_posts() ){
+    	$i = 1;
         while( $loop->have_posts() ){
         	$string .= '<div class="col-sm ov-box">';
             $loop->the_post();
@@ -444,7 +443,7 @@ function display_venue_post_type(){
 
             // $string .= '<li>' . get_the_title() . '</li>';
             $string .= '
-           	 <div class="ov-1">
+           	 <div class="ov-'.$i++.'">
               <img src="'.$file_url.'">
              </div>
              <div class="ov-vm">

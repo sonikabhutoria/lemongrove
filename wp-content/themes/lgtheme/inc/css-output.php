@@ -1229,7 +1229,7 @@ function generate_enqueue_dynamic_css() {
 
 	$css = $css . generate_no_cache_dynamic_css();
 
-	wp_add_inline_style( 'generate-style', wp_strip_all_tags( $css ) );
+	// wp_add_inline_style( 'generate-style', wp_strip_all_tags( $css ) );
 }
 
 add_action( 'init', 'generate_set_dynamic_css_cache' );

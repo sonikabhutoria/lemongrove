@@ -273,7 +273,7 @@ if ( ! function_exists( 'generate_beaver_builder_css' ) ) {
 					padding:0;
 				}';
 				$css = str_replace( array( "\r", "\n", "\t" ), '', $css );
-				wp_add_inline_style( 'generate-style', $css );
+				// wp_add_inline_style( 'generate-style', $css );
 			}
 		}
 	}
@@ -294,7 +294,7 @@ function generate_do_third_party_plugin_css() {
 	}
 
 	if ( $css->css_output() ) {
-		wp_add_inline_style( 'generate-style', $css->css_output() );
+		// wp_add_inline_style( 'generate-style', $css->css_output() );
 	}
 }
 
@@ -551,7 +551,7 @@ function generate_do_pro_compatibility() {
 	}
 
 	if ( $css->css_output() ) {
-		wp_add_inline_style( 'generate-style', $css->css_output() );
+		// wp_add_inline_style( 'generate-style', $css->css_output() );
 	}
 }
 

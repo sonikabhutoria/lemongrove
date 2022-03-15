@@ -107,34 +107,27 @@ if ( ! function_exists( 'generate_navigation_position' ) ) {
 		if( is_page('whats-on') || in_array($post_slug,$venue_array) ) 
 		{
 					?>
-					<style>
-						/*.logo-img{
-							width: 25%;
-							float: left;
-							margin-left: 40px;
-						}*/
-						.banner-img{
-						text-align: unset !important;
-    					padding-left: 49px !important;
-    					}
-					</style>
-					<div class="row">
-						<div class="col-md-12" id="banner-img">
+					<div id="header">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12" id="banner-img">
 
-							<?php if( get_field('header_image') ): 
-								$file = get_field('header_image');
-								$file_url = $file['url'];
-							?>
-								<img src="<?php echo $file_url;?>" class="logo-img">
-							<?php endif; ?>
-							
-							<img src="images/mob-logo.svg" class="logo-img-mob">
-						</div>
-						<div class="col-md-12 whats-heading">
-							<h1><?php if( get_field('header_title') ):
-								the_field('header_title');
-								endif; ?>
-							</h1>
+									<?php if( get_field('header_image') ): 
+										$file = get_field('header_image');
+										$file_url = $file['url'];
+									?>
+										<img src="<?php echo $file_url;?>" class="logo-img">
+									<?php endif; ?>
+									
+									<img src="<?php echo $file_url;?>" class="logo-img-mob">
+								</div>
+								<div class="col-md-12 whats-heading">
+									<h1><?php if( get_field('header_title') ):
+										the_field('header_title');
+										endif; ?>
+									</h1>
+								</div>
+							</div>
 						</div>
 					</div>
 				<?php

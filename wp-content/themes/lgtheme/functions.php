@@ -115,9 +115,9 @@ require $theme_dir . '/inc/structure/sidebars.php';
 //START CSS AND JS binding to theme
 function themeslug_enqueue_style() {
 	$url_arr = explode("/",$_SERVER['REQUEST_URI']);
-	if(isset($url_arr[3]) && $url_arr[3] != "")
+	if(isset($url_arr[2]) && $url_arr[2] != "")
 	{
-		$current_venue = $url_arr[3];
+		$current_venue = $url_arr[2];
 	}
     $venue_array  = array("lemon-grove","the-ram-bar","great-hall","forum-kithcen");
 

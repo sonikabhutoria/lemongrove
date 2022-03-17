@@ -104,7 +104,7 @@ if ( ! function_exists( 'generate_navigation_position' ) ) {
 
 		$venue_array  = array("lemon-grove","the-ram-bar","great-hall","forum-kithcen");
 
-		if( is_page('whats-on') || in_array($post_slug,$venue_array) ) 
+		if( is_page('whats-on') || is_page('private-hire') || in_array($post_slug,$venue_array) ) 
 		{
 					?>
 					<div id="header">
@@ -132,6 +132,29 @@ if ( ! function_exists( 'generate_navigation_position' ) ) {
 					</div>
 				<?php
 		}
+
+		//START for blog post
+		$post_type = get_post_type();
+		
+		if( 'post' === $post_type ) {
+			?>
+				<div id="header">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12" id="banner-img">
+								<img src="<?php echo get_stylesheet_directory_uri()."/assets/";?>images/whats_on_header-logo.svg" class="logo-img">
+								<img src="<?php echo get_stylesheet_directory_uri()."/assets/";?>images/mob-logo.svg" class="logo-img-mob">
+							</div>
+							<div class="col-md-12 whats-heading">
+								<h1> BLOG IS MA</br>VOLORE VOLORIA.</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php
+		}
+
+
 		//END For setting header_image and header_title on pages (Like:whatson page)
 		
 

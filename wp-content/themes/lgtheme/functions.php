@@ -114,10 +114,17 @@ require $theme_dir . '/inc/structure/sidebars.php';
 
 //START CSS AND JS binding to theme
 function themeslug_enqueue_style() {
-	$url_arr = explode("/",$_SERVER['REQUEST_URI']);
-	if(isset($url_arr[2]) && $url_arr[2] != "")
+
+	$post_type = get_post_type();
+
+	// if( 'post' === $post_type ) {
+	// } elseif ( 'page' === $post_type ) {
+	//    echo "it is page";
+	// }
+
+	$url_arr = explode("/",$_SERVER['REQUEST_URI']);	
 	{
-		$current_venue = $url_arr[2];
+		$current_venue = $url_arr[3];
 	}
     $venue_array  = array("lemon-grove","the-ram-bar","great-hall","forum-kithcen");
 
@@ -142,7 +149,7 @@ function themeslug_enqueue_style() {
 
 
 
-    if(is_page('whats-on') || in_array($current_venue,$venue_array) )
+    if(is_page('whats-on') || is_page('private-hire') || in_array($current_venue,$venue_array) || 'post' === $post_type)
     {
     	wp_enqueue_style( 'inter_our_venues', get_stylesheet_directory_uri()."/assets/css/intern-our_venues.css", false );
     	wp_enqueue_style( 'whats-on', get_stylesheet_directory_uri()."/assets/css/whats-on.css", false );
@@ -155,8 +162,8 @@ function themeslug_enqueue_script() {
     wp_enqueue_script( 'bootstrap', "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js", false );
     wp_enqueue_script( 'myjquery', "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js", false );
     wp_enqueue_script( 'myjquery-pagination', "https://cdnjs.cloudflare.com/ajax/libs/simplePagination.js/1.6/jquery.simplePagination.js", false );
+    wp_enqueue_script( 'myjquery', get_stylesheet_directory_uri()."/assets/js/jquery.min.js", false );
     wp_enqueue_script( 'pagingnation', get_stylesheet_directory_uri()."/assets/js/pagingnation.js", false );
-    // wp_enqueue_script( 'myjquery', get_stylesheet_directory_uri()."/assets/js/jquery.min.js", false );
     wp_enqueue_script( 'dropdown-arrow', get_stylesheet_directory_uri()."/assets/js/dropdown-arrow.js", false );
     // wp_enqueue_script( 'logo', get_stylesheet_directory_uri()."/assets/js/logo.js", false );
 }
@@ -179,7 +186,7 @@ function _custom_nav_menu_item( $title, $url, $order, $parent = 0 ){
   $item->type = '';
   $item->object = '';
   $item->object_id = '';
-  $item->classes = array();
+  $item->classes = array('blog_inner_menu');
   $item->target = '';
   $item->attr_title = '';
   $item->description = '';
@@ -242,14 +249,14 @@ class IBenic_Walker extends Walker_Nav_Menu {
 
 	if ( in_array("menu-item-has-children",$item->classes) ) 
 	{
-		
 		array_push($item->classes,'dropdown');
 	}
 
-	if(in_array("current_page_item",$item->classes) )
+	if(in_array("current_page_item",$item->classes)  || in_array('current-menu-ancestor', $item->classes))
 	{
 		array_push($item->classes,'active');
 	}
+
 
 	// if($menu_item_parent != 0)
 	// {
@@ -375,7 +382,7 @@ class IBenic_Walker_MobileMenu extends Walker_Nav_Menu {
        
 
       //Add SPAN if no Permalink
-      if( $permalink && $permalink != '#' ) {
+      if( $permalink) { //&& $permalink != '#'
       	if($add_dropdown_toggle != "")
       	{
       		$output .= $add_dropdown_toggle;	
@@ -394,7 +401,7 @@ class IBenic_Walker_MobileMenu extends Walker_Nav_Menu {
       	$output .= '<small class="description">' . $description . '</small>';
       }
 
-      if( $permalink && $permalink != '#' ) {
+      if( $permalink) { //&& $permalink != '#'
       	if($add_arrow_down != "")
       	{
       		$output .= $add_arrow_down."</a>";

@@ -1068,7 +1068,7 @@ object {
 }
 
 .site-content {
-	display: flex
+	/*display: flex*/ /*Commented by me*/
 }
 
 .grid-container {
@@ -1293,7 +1293,7 @@ nav.toggled .sfHover>a>.dropdown-menu-toggle .gp-icon.icon-arrow-right svg {
 }
 
 .container.grid-container {
-	width: auto
+	width: auto;
 }
 
 .menu-toggle,
@@ -1500,5 +1500,18 @@ nav.toggled ul ul.sub-menu {
 @media (min-width:1025px) {
 	.hide-on-desktop {
 		display: none!important
+	}
+}
+
+
+/*Added by me*/
+
+@media (max-width: 500px)
+{
+	.separate-containers .comments-area,
+	.separate-containers .inside-article,
+	.separate-containers .page-header,
+	.separate-containers .paging-navigation {
+		padding: unset
 	}
 }

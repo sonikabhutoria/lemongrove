@@ -104,7 +104,7 @@ if ( ! function_exists( 'generate_navigation_position' ) ) {
 
 		$venue_array  = array("lemon-grove","the-ram-bar","great-hall","forum-kithcen");
 
-		if( is_page('whats-on') || is_page('private-hire') || in_array($post_slug,$venue_array) ) 
+		if( is_page('whats-on') || is_page('private-hire') || is_page('contact') || in_array($post_slug,$venue_array) ) 
 		{
 					?>
 					<div id="header">

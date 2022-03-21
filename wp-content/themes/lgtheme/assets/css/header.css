@@ -385,8 +385,8 @@ body {
 @media (max-width: 600px) {
     .container {
         width: unset;
-        padding-right: 30px;
-        padding-left: 30px;
+       /* padding-right: 30px; /*Added by me commented*/
+       /* padding-left: 30px;*/ /*Added by me commented*/
     }
     /*----------navbar-------*/
     
@@ -509,6 +509,21 @@ body {
         width: 100%;
     }
 }
+
+*--------- ipad Medeia query -----------*/
+
+ @media only screen and (min-width: 834px) and (max-width: 1194px)  { 
+   #header .container{width: unset;!important;}
+   .container{width: unset;}
+   #text-para{padding: 100px 40px;}
+   #blog{padding: 0px 40px;}
+   #booking{padding: 0px 50px;}
+   #booking .row{border: none;}
+   #navbar-main .navbar-nav>li>a { padding: 15px 31px;}
+    .footer-section {padding: 0px 50px;}
+    .footer .footer-social-icon a{margin-right: 10px!important;}
+  }
+
 
 /*Changed by me*/
 

@@ -1,6 +1,19 @@
 <?php wp_enqueue_script('wp-event-manager-content-event-listing'); ?>
 <?php if ($layout_type == 'all' ) : ?>
-<div class="wpem-main wpem-event-listings-header" style="margin-top: -95px !important;">
+<style>
+    .event-listing-start
+    {
+        margin-top: -126px !important;
+    }
+    @media (max-width: 500px) {
+        .event-listing-start
+        {
+            margin-top: -10px !important;
+        }
+    }
+
+</style>
+<div class="wpem-main wpem-event-listings-header event-listing-start">
     <div class="wpem-row">
         <div class="wpem-col wpem-col-12 wpem-col-sm-6 wpem-col-md-6 wpem-col-lg-8">
             <div class="wpem-event-listing-header-title">

@@ -1015,7 +1015,7 @@ object {
 
 .footer-widgets .widget :last-child,
 .sidebar .widget :last-child {
-	margin-bottom: 0
+	/*margin-bottom: 0*/ /*Added by me commented*/
 }
 
 .widget-title {

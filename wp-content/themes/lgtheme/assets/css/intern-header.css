@@ -332,8 +332,8 @@ body{font-family: 'Nunito Sans'!important;background-color: #141414;}
 
 .container {
     width: unset;
-    padding-right: 30px;
-    padding-left: 30px;
+/*    padding-right: 30px; /*Added by me*/
+   /*  padding-left: 30px;*/ /*Added by me*/
 }
 
 #aboutus .container { /*Added by me*/

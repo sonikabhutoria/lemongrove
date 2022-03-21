@@ -14,7 +14,18 @@
 }
 .ov-box:hover img {opacity: .5;}
 .ov-box:hover i{color: #D10000;}
-.ov-1{background: #e53131;  text-align: center;}
+
+/*.ov-1{background: #e53131;  text-align: center;}
+.ov-2{background: #2B2B2A;  text-align: center;}
+.ov-3{background: #BB9650;  text-align: center;}
+.ov-4{background: #fff;   text-align: center;}*/
+
+#our-venues .ov-box .ov-1 img { width: 100%;/* margin: 164px 56px!important;*/}
+#our-venues .ov-box .ov-2 img { width: 100%;/*margin: 75px;*/ }
+#our-venues .ov-box .ov-3 img { width: 100%;/*margin: 125px 75px;*/ }
+#our-venues .ov-box .ov-4 img { width: 100%;/*margin: 125px 75px;*/ }
+
+/*.ov-1{background: #e53131;  text-align: center;}
 .ov-2{background: #2B2B2A;  text-align: center;}
 .ov-3{background: #BB9650;  text-align: center;}
 .ov-4{background: #fff;   text-align: center;}
@@ -23,7 +34,7 @@
 #our-venues .ov-box .ov-2 img { width: 179px;margin: 75px; }
 #our-venues .ov-box .ov-3 img { width: 184px;margin: 125px 75px; }
 #our-venues .ov-box .ov-4 img { width: 200px;margin: 125px 75px; }
-
+*/
 
 .ov-vm{
     border-bottom: 1px solid #696969;
@@ -38,10 +49,18 @@
                 Media Query                               
 ------------------------------------------*/
 
+/*@media (max-width: 500px) 
+{*/
+    /*#our-venues img{ margin: 56px!important;}*/ /*Changed by me*/
+    /*#our-venues .ov-box .ov-1 img{width: 220px!important; margin: 120px auto!important;}
+    #our-venues .ov-box .ov-2 img{width: 130px!important;}
+    #our-venues { padding: 0px 10px; }
+}*/
+
 @media (max-width: 500px) 
 {
-    /*#our-venues img{ margin: 56px!important;}*/ /*Changed by me*/
-    #our-venues .ov-box .ov-1 img{width: 220px!important; margin: 120px auto!important;}
-    #our-venues .ov-box .ov-2 img{width: 130px!important;}
+    #our-venues img{ margin: 0px!important;}
+    #our-venues .ov-box .ov-1 img{width: 100% !important; margin: 0px !important;}
+    #our-venues .ov-box .ov-2 img{width: 100%!important; margin: 0px !important;}
     #our-venues { padding: 0px 10px; }
 }

@@ -124,7 +124,7 @@ function themeslug_enqueue_style() {
 
 	$url_arr = explode("/",$_SERVER['REQUEST_URI']);	
 	{
-		$current_venue = $url_arr[2];
+		$current_venue = $url_arr[3];
 	}
     $venue_array  = array("lemon-grove","the-ram-bar","great-hall","forum-kithcen");
 
@@ -149,12 +149,16 @@ function themeslug_enqueue_style() {
 
 
 
-    if(is_page('whats-on') || is_page('private-hire') || in_array($current_venue,$venue_array) || 'post' === $post_type)
+    if(is_page('whats-on') || is_page('private-hire') || is_page('contact') || in_array($current_venue,$venue_array) || 'post' === $post_type)
     {
     	wp_enqueue_style( 'inter_our_venues', get_stylesheet_directory_uri()."/assets/css/intern-our_venues.css", false );
     	wp_enqueue_style( 'whats-on', get_stylesheet_directory_uri()."/assets/css/whats-on.css", false );
     	// wp_dequeue_style( WP_CONTENT_DIR.'/plugins/mobile-menu/cssmobmenu-css' );
     	// wp_dequeue_style( 'cssmobmenu' );
+    }
+    if(is_page('contact'))
+    {
+    	wp_enqueue_style( 'contactpage', get_stylesheet_directory_uri()."/assets/css/contact.css", false );
     }
 }
  
@@ -465,6 +469,48 @@ function display_venue_post_type(){
     return $string;
 }
 //END Whats on page venue section
+
+
+//START Contact page
+add_shortcode( 'contactpage', 'display_contactpage' );
+
+function display_contactpage(){
+    $args = array(
+        'post_type' => 'event_venue',
+        'post_status' => 'publish',
+        'orderby' => 'ID', 
+        'order' => 'ASC'
+    );
+
+    $string = '';
+    $string .= '<section id="our-venues-contact"><div class="container">';
+    $loop = new WP_Query( $args );
+    if( $loop->have_posts() ){
+    	$i = 1;
+        while( $loop->have_posts() ){
+        	$string .= '<div class="col-sm ov-box">';
+            $loop->the_post();
+            if( get_field('whats_on_page_venue_image') ){
+				$file = get_field('whats_on_page_venue_image');
+				$file_url = $file['url'];
+            } 
+			
+            $string .= '
+           	 <div class="ov-'.$i++.'">
+              <img src="'.$file_url.'">
+             </div>
+             <div class="ov-vm">
+	              <a href="'.get_post_permalink().'"><p>VIEW VENUE <span><i class="fa fa-arrow-right"></i></span></p></a>
+              </div>
+           </div>';
+        }
+        $string .= '</div></section>';
+    }
+    // wp_reset_3postdata();
+    wp_reset_query();
+    return $string;
+}
+//END Contact page
 
 
 

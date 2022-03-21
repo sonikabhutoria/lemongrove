@@ -68,7 +68,7 @@
 .footer-social-icon a {
   color: #fff;
   font-size: 16px;
-  margin-right: 15px;
+  margin-right: 5px; /*Changed by me margin-right: 1px;*/
 }
 .footer-social-icon i {
   height: 40px;
@@ -125,7 +125,7 @@
   position: relative;
 }
 .hr-devider-top hr{
-  margin: 90px 0 !important; /*Changed by me added !imporatant*/
+  margin: 90px 0px;
   border-top: 1px solid #696969!important;
 }
 .hr-devider-bottom hr{margin: 10px 0;border-top: 1px solid #696969!important;}
@@ -183,6 +183,11 @@
   margin: 0;
   font-size: 10px;
   color: #fff;
+  padding-left: 40px; /*Added by me*/
+}
+.design_develope
+{
+  padding-right: 40px; /*Added by me*/
 }
 
 .copyright-text p a{
@@ -220,6 +225,7 @@
     .university-logo {
         float: none;
         margin-top: 5rem;
+        height: 81px;
     }
     #footer .mob-footer-address{
         display: block;
@@ -240,6 +246,10 @@
       content: "\a";
       white-space: pre;
     }
+}
+
+@media only screen and (min-width: 834px) and (max-width: 1194px)  { 
+  .footer .footer-social-icon a{margin-right: 10px!important;}
 }
 
 /*Added by me */

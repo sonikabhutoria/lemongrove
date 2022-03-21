@@ -113,7 +113,7 @@ if($post_type == "post")
 			?>
 		</main>
 		<div class="col-md-12">
-	  		<p class="heading">OUR VENUES</p>
+	  		<p class="heading contact-heading">OUR VENUES</p>
 	  	</div>
 		<?php echo do_shortcode('[whatonpagevenues]');?>
 		<div class="web-height"></div>

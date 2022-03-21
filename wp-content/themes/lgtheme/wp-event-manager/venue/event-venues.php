@@ -36,10 +36,19 @@
               
                 <div class="row">
                     <?php
-                    foreach ($venues_array as $letter => $venues) : ?>
-                        <div id="show_<?php echo $letter; ?>" class="col-md-6 ov-box">
+                    foreach ($venues_array as $letter => $venues)
+                    {
+                        foreach($venues as $k => $v)
+                        {
+                            $new_venues_array[$k] = $v;
+                        }
+                    }
+                    ksort($new_venues_array);
+                   
+                    foreach ($new_venues_array as $venue_id => $venue_name) : ?>
+                        <div id="show_<?php echo $venue_id; ?>" class="col-md-6 ov-box">
                             
-                                    <?php foreach ($venues as $venue_id => $venue_name) :
+                                    <?php //foreach ($venues as $venue_id => $venue_name) :
                                         
                                         $count = get_event_venue_count($venue_id); 
                                         $venue = get_post($venue_id); ?>
@@ -55,7 +64,7 @@
                                   
                                         
 
-                                    <?php endforeach; ?>
+                                    <?php // endforeach; ?>
                                 
                         </div>
                     <?php endforeach; ?>

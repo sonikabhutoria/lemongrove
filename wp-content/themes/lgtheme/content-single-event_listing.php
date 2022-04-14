@@ -7,14 +7,49 @@ $venue_name   = get_event_venue_name();
 $end_time   = get_event_end_time();
 $start_time = get_event_start_time();
 $event_type = get_event_type();
+$event_venue_id = get_post(get_event_venue_ids()); 
 
+$post_slug = get_post_field( 'post_name', $event_venue_id);
+
+if($post_slug == "lemon-grove")
+{
+    $color = "#6C5E93";
+    $banner_image_width = "width: 10% !important; margin-top: 9rem !important;";
+    $media_css = "#header h1 { font-size: 27px !important;}
+            .logo-img-mob { width:27% !important; margin-top: 3rem !important;}";
+
+    // $banner_image_width = "width: 10% !important; margin-top: 9rem !important;";
+}
+else if($post_slug == "the-ram-bar")
+{
+    $color = "#738626";
+    $banner_image_width = "width: 6% !important; margin-top: 8rem !important;";
+    $media_css = "#aboutus { margin-top: 70px !important;}
+            .logo-img-mob { width: 19% !important;}";
+}
+else if($post_slug == "great-hall")
+{
+    $color = "#BB9650";
+    $banner_image_width = "width: 8% !important; margin-top: 8rem !important;";
+    $media_css = "#aboutus { margin-top: 70px !important;}
+            .logo-img-mob { width: 19% !important;}
+            #header h1 { font-size: 26px !important;}";
+}
+else if($post_slug == "forum-kithcen")
+{
+    $color = "#FF9300";
+    $banner_image_width = "width: 8% !important; margin-top: 8rem !important;";
+    $media_css = "#aboutus { margin-top: 0px !important;}
+            .logo-img-mob { width: 32% !important;}
+            #header h1 { font-size: 24px !important;}";
+}
 
 wp_enqueue_script('wp-event-manager-slick-script');
 wp_enqueue_style('wp-event-manager-slick-style');
 do_action('set_single_listing_view_count');
 $event = $post;
 
-$event_venue_id = get_post(get_event_venue_ids()); 
+
 if( get_field('background_image',$event_venue_id) ){
     $file = get_field('background_image',$event_venue_id);
     $file_url = $file['url'];
@@ -33,6 +68,8 @@ if( get_field('mobile_background_image',$event_venue_id) ){
         background-color:#141414 ;
         font-family: 'Nunito Sans'!important;
     }
+
+    #banner-img .logo-img{<?php echo $banner_image_width; ?>}
 
     .card-body{    padding: 28px;}
 

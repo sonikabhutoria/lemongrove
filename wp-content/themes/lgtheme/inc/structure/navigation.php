@@ -97,6 +97,45 @@ if ( ! function_exists( 'generate_navigation_position' ) ) {
 		</nav>
 
 		<?php
+
+		$post_type = get_post_type();
+		$venue_detail_page = "";
+		if($post_type == "event_listing")
+		{
+		   // $venues_name = get_event_venue_name();
+		   // $venue_detail_page = strtolower(str_replace(" ","_",$venues_name));
+
+		   $event_venues_id = get_event_venue_ids(); 
+		?>
+		   <div id="header">
+		      <div class="container">
+		         <div class="row">
+		            <div class="col-md-12" id="banner-img">
+
+		               <?php if( get_field('header_image',$event_venues_id) ): 
+		                  $file = get_field('header_image',$event_venues_id);
+		                  $file_url = $file['url'];
+		               ?>
+		                  <img src="<?php echo $file_url;?>" class="logo-img">
+		               <?php endif; ?>
+		               
+		               <img src="<?php echo $file_url;?>" class="logo-img-mob">
+		            </div>
+		            <div class="col-md-12 whats-heading">
+		               <h1><?php if( get_field('header_title',$event_venues_id) ):
+		                  the_field('header_title',$event_venues_id);
+		                  endif; ?>
+		               </h1>
+		            </div>
+		         </div>
+		      </div>
+		   </div>
+
+   		<?php
+   		}
+   		?>
+
+   		<?php
 		//START For setting header_image and header_title on pages (Like:whatson page)
 		global $wp_query;
 		$post = $wp_query->get_queried_object();

@@ -149,7 +149,7 @@ function themeslug_enqueue_style() {
 
 
 
-    if(is_page('whats-on') || is_page('private-hire') || is_page('contact') || in_array($current_venue,$venue_array) || 'post' === $post_type)
+    if(is_page('whats-on') || is_page('private-hire') || is_page('contact') || in_array($current_venue,$venue_array) || 'post' === $post_type || 'event_listing' == $post_type)
     {
     	wp_enqueue_style( 'inter_our_venues', get_stylesheet_directory_uri()."/assets/css/intern-our_venues.css", false );
     	wp_enqueue_style( 'whats-on', get_stylesheet_directory_uri()."/assets/css/whats-on.css", false );
@@ -455,7 +455,7 @@ function display_venue_post_type(){
             // $string .= '<li>' . get_the_title() . '</li>';
             $string .= '
            	 <div class="ov-'.$i++.'">
-              <img src="'.$file_url.'">
+              <a href="'.get_post_permalink().'"><img src="'.$file_url.'"></a>
              </div>
              <div class="ov-vm">
 	              <a href="'.get_post_permalink().'"><p>VIEW VENUE <span><i class="fa fa-arrow-right"></i></span></p></a>

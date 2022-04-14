@@ -39,6 +39,9 @@ if($post_type == "post")
 	.web-height{
 		height: 100px;
 	}
+	#blog_detail_page .container{
+		padding: 0px 62px !important;
+	}
 
 	#navbar-main .nav .active a {color: #CE000D;}
 
@@ -115,7 +118,9 @@ if($post_type == "post")
 		<div class="col-md-12">
 	  		<p class="heading contact-heading">OUR VENUES</p>
 	  	</div>
-		<?php echo do_shortcode('[whatonpagevenues]');?>
+	  	<div id="blog_detail_page">
+			<?php echo do_shortcode('[whatonpagevenues]');?>
+		</div>
 		<div class="web-height"></div>
 	</div>
 
@@ -131,6 +136,7 @@ if($post_type == "post")
 }
 else
 {
+	// echo "else here";
 ?>
 	<div <?php generate_do_attr( 'content' ); ?>>
 		<main <?php generate_do_attr( 'main' ); ?>>
@@ -170,7 +176,7 @@ else
 	 */
 	do_action( 'generate_after_primary_content_area' );
 
-	generate_construct_sidebars();
+	// generate_construct_sidebars();
 
 }
 	

@@ -175,7 +175,7 @@ if ( ! function_exists( 'generate_navigation_position' ) ) {
 		//START for blog post
 		$post_type = get_post_type();
 		
-		if( 'post' === $post_type ) {
+		if( 'post' === $post_type || is_page('blog')) {
 			?>
 				<div id="header">
 					<div class="container">

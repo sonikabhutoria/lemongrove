@@ -149,7 +149,7 @@ function themeslug_enqueue_style() {
 
 
 
-    if(is_page('whats-on') || is_page('private-hire') || is_page('contact') || in_array($current_venue,$venue_array) || 'post' === $post_type || 'event_listing' == $post_type)
+    if(is_page('whats-on') || is_page('private-hire') || is_page('contact') || in_array($current_venue,$venue_array) || 'post' === $post_type || 'event_listing' == $post_type || is_page('blog'))
     {
     	wp_enqueue_style( 'inter_our_venues', get_stylesheet_directory_uri()."/assets/css/intern-our_venues.css", false );
     	wp_enqueue_style( 'whats-on', get_stylesheet_directory_uri()."/assets/css/whats-on.css", false );
@@ -178,7 +178,7 @@ add_action( 'wp_enqueue_scripts', 'themeslug_enqueue_script' );
 
 
 //START SET lastest 4 blog in menu
-add_filter( 'wp_get_nav_menu_items', 'custom_nav_menu_items2', 20, 2 );
+// add_filter( 'wp_get_nav_menu_items', 'custom_nav_menu_items2', 20, 2 );
 function _custom_nav_menu_item( $title, $url, $order, $parent = 0 ){
   $item = new stdClass();
   $item->ID = 1000000 + $order + $parent;
@@ -301,13 +301,16 @@ class IBenic_Walker extends Walker_Nav_Menu {
 add_shortcode( 'homepageblogs', 'display_custom_post_type' );
 
 function display_custom_post_type(){
+	$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+    
     $args = array(
         'post_type' => 'post',
-        'post_status' => 'publish'
+        'post_status' => 'publish',
+        'posts_per_page' => '6'
     );
 
     $string = '';
-    $string .= '<section id="blog">';
+    $string .= '<section id="blog"><div class="container">';
     $loop = new WP_Query( $args );
     if( $loop->have_posts() ){
         $string .= '<div class="row list-wrapper">';
@@ -317,18 +320,24 @@ function display_custom_post_type(){
      		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); 
 
             // $string .= '<li>' . get_the_title() . '</li>';
-            $string .= '<a href="'.get_post_permalink().'"><div class="col-md-4 blog-box">
+            $string .= '<a href="'.get_post_permalink().'"><div class="col-sm-6 col-md-4 blog-box">
               <img src="'.$image[0].'">
               <small>'.get_the_category()[0]->cat_name.'</small>
               <p class="b-maintext">'.get_the_title().'</p>
               <span class="b-arrow"><i class="fa fa-arrow-right"></i></span>
-           </div>';
+           </div></a>';
         }
-        $string .= '</div></a>';
-        $string .= '</section>';
-    }
-    // wp_reset_postdata();
-    wp_reset_query();
+        $string .= '</div>';
+
+		$string .= '</div></section>';
+
+    	}
+		else{
+			$string .= '<p>Sorry, there are no posts to display</p>';
+		}
+
+    wp_reset_postdata();
+    // wp_reset_query();
     return $string;
 }
 //END Home page blog section
@@ -515,7 +524,69 @@ function display_contactpage(){
 
 
 
+if ( ! function_exists('blogwithpagination_shortcode') ) {
+    function blogwithpagination_shortcode( $atts ){
 
+        $atts = shortcode_atts( array(
+                        'per_page'  =>   6,  
+                        'order'     =>  'DESC',
+                        'orderby'   =>  'date'
+                ), $atts );
+
+        $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+
+        $args = array(
+            'post_type'         =>  'post',
+            'posts_per_page'    =>  $atts["per_page"], 
+            'order'             =>  $atts["order"],
+            'orderby'           =>  $atts["orderby"],
+            'paged'             =>  $paged
+        );
+
+	$query = new WP_Query($args);
+	$output .= '<section id="blog"><div class="container">';
+    if($query->have_posts()) : $output;
+
+    	$output .= '<div class="row list-wrapper">';
+        while ($query->have_posts()) : $query->the_post();
+        	 
+        	 $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); 
+
+        	 $output .= '<a href="'.get_post_permalink().'"><div class="col-sm-6 col-md-4 blog-box">
+              <img src="'.$image[0].'">
+              <small>'.get_the_category()[0]->cat_name.'</small>
+              <p class="b-maintext">'.get_the_title().'</p>
+              <span class="b-arrow"><i class="fa fa-arrow-right"></i></span>
+           </div></a>';    
+
+    	endwhile;
+    	$output .= '</div>';
+
+	    global $wp_query;
+	    $args_pagi = array(
+	    'base' => add_query_arg( 'paged', '%#%' ),
+	    'total' => $query->max_num_pages,
+	    'current' => $paged
+	    );
+        $output .= '<div class="post-nav">';
+            $output .= paginate_links( $args_pagi);
+        $output .= '</div>';
+
+        else:
+
+            $output .= '<p>Sorry, there are no posts to display</p>';
+
+        endif;
+        $output .= '</div></section>';
+
+    wp_reset_postdata();
+
+    return $output;
+        }
+    }
+
+    add_shortcode('blogwithpagination', 'blogwithpagination_shortcode');
+       
 
 
 

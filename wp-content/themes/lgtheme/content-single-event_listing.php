@@ -149,7 +149,7 @@ if( get_field('mobile_background_image',$event_venue_id) ){
                                      if (!empty($start_time))
                                      {
                                     ?>
-                                        <span class="card-time"><?php echo display_event_start_time();?>  </span>     
+                                        <span class="card-time"><?php echo date_i18n('h:i a', strtotime($start_time));//echo display_event_start_time();?>  </span>     
                                     <?php
                                      }
                                      ?>

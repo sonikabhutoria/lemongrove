@@ -1,5 +1,6 @@
 <!-- venue Counter -->
   <section id="our-venues">
+    <div class="container">
 <div class="wpem-venue-connter">
 
     <?php if(count($venues) > 0) : ?>
@@ -84,6 +85,7 @@
         </div>
     <?php endif; ?>
     
+</div>
 </div>
 </section>
 <!-- end venue Counter -->

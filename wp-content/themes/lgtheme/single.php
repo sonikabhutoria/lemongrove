@@ -11,6 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); 
 
+$img_path = get_stylesheet_directory_uri()."/assets/images/home-drp.png";
 
 $post_type = get_post_type();
 
@@ -20,7 +21,7 @@ if($post_type == "post")
 <style>	
 	.logo-img{width: 25%;}	
 		.modal-content{
-	    background-image: url("images/home-drp.png");
+	    background-image: url("<?php echo $img_path;?>");
 	    background-size: cover;
 	}
 
@@ -40,7 +41,7 @@ if($post_type == "post")
 		height: 100px;
 	}
 	#blog_detail_page .container{
-		padding: 0px 62px !important;
+		padding: 0px 30px !important;
 	}
 
 	#navbar-main .nav .active a {color: #CE000D;}
@@ -60,6 +61,9 @@ if($post_type == "post")
 		}
 		.web-height{
 			height: unset;
+		}
+		.blog-venues{
+			padding-left: 0 !important;
 		}
 
 	}
@@ -116,7 +120,7 @@ if($post_type == "post")
 			?>
 		</main>
 		<div class="col-md-12">
-	  		<p class="heading contact-heading">OUR VENUES</p>
+	  		<p class="heading contact-heading blog-venues">OUR VENUES</p>
 	  	</div>
 	  	<div id="blog_detail_page">
 			<?php echo do_shortcode('[whatonpagevenues]');?>

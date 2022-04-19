@@ -586,6 +586,13 @@ if ( ! function_exists('blogwithpagination_shortcode') ) {
     }
 
     add_shortcode('blogwithpagination', 'blogwithpagination_shortcode');
+
+
+    add_shortcode('full_image_path', 'get_full_image_path');
+    function get_full_image_path()
+    {
+    	return get_stylesheet_directory_uri();
+    }
        
 
 

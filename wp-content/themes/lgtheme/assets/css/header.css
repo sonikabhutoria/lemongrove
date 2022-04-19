@@ -61,7 +61,7 @@ body {
 }
 #subnavbar .navbar-text {
     color: #fff!important;
-    font-weight:700;
+    font-weight:100;
 }
 #mob-nav {
     display: none;
@@ -158,10 +158,10 @@ body {
 
 /*---------- mov -nav ----*/
 .mob-header {color: #fff;}
-.mob-header span{    font-weight: 700;font-size: 16px;}
+.mob-header span{    font-weight: 100;font-size: 16px;}
 
 #mob-nav .mob-header {
-    padding: 15px 0;
+    /*padding: 15px 0;*/
 }
 #mob-nav .mob-header .btn-bar {
     float: right;
@@ -236,7 +236,7 @@ body {
     font-size: 16px;
 }
 #mob-nav .mob-header {
-    padding: 15px 0;
+    /*padding: 15px 0;*/
 }
 .modal.modal-fullscreen .modal-dialog,
 .modal.modal-fullscreen .modal-content {

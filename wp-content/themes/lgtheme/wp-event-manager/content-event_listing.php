@@ -6,6 +6,7 @@ $end_date   = get_event_end_date();
 $end_time   = get_event_end_time();
 $event_type = get_event_type();
 $venues_name = get_event_venue_name();
+
 if (is_array($event_type) && isset($event_type[0]))
     $event_type = $event_type[0]->slug;
 
@@ -48,7 +49,7 @@ $thumbnail  = get_event_thumbnail($post,'full');
              if (!empty($start_time))
              {
             ?>
-                <span class="card-time"><?php echo display_event_start_time();?>  </span>     
+                <span class="card-time"><?php echo date_i18n('h:i a', strtotime($start_time)); //echo display_event_start_time();?>  </span>     
             <?php
              }
              ?>

@@ -408,7 +408,7 @@ a {
 .no-sidebar .entry-content .alignfull {
 	/*margin-left: calc(-100vw / 2 + 100% / 2);*/ /*Changed by me commented*/
 	margin-right: calc(-100vw / 2 + 100% / 2);
-	max-width: 100vw;
+	max-width: 100%; /*Changed by me commented 100vw*/
 	width: auto
 }
 

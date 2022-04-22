@@ -131,6 +131,7 @@ function themeslug_enqueue_style() {
     wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri()."/assets/css/bootstrap.min.css", false );
     wp_enqueue_style( 'font-awesome', "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", false );
     wp_enqueue_style( 'our-font', "https://fonts.googleapis.com/css?family=Nunito Sans:400,700,800", false );
+    wp_enqueue_style( 'lineicons', "https://cdn.lineicons.com/3.0/lineicons.css", false );
     wp_enqueue_style( 'blog', get_stylesheet_directory_uri()."/assets/css/blog.css" );
     wp_enqueue_style( 'intern_header', get_stylesheet_directory_uri()."/assets/css/intern-header.css", false );
 
@@ -243,7 +244,7 @@ class IBenic_Walker extends Walker_Nav_Menu {
 	}	
     
   function start_el(&$output, $item, $depth=0, $args=array(), $id = 0) {
-  	// echo '<pre>';print_r($item);
+  	
   	$object = $item->object;
 	$type = $item->type;
 	$title = $item->title;
@@ -256,17 +257,37 @@ class IBenic_Walker extends Walker_Nav_Menu {
 		array_push($item->classes,'dropdown');
 	}
 
-	if(in_array("current_page_item",$item->classes)  || in_array('current-menu-ancestor', $item->classes))
+	if(in_array("current_page_item",$item->classes) )// || in_array('current-menu-ancestor', $item->classes))
 	{
 		array_push($item->classes,'active');
 	}
 
+	if(in_array('current-menu-ancestor', $item->classes))//To remove red selected menu from Venues Menu
+	{
+		array_push($item->classes,'active_venue_menu');
+	}	
 
-	// if($menu_item_parent != 0)
-	// {
-	// 	array_push($item->classes,'drp-lemon');
-	// }
-		
+	//START To keep current menu with different color for Venues
+	if(in_array("current-menu-item",$item->classes) && in_array("drp-lemon",$item->classes) )
+	{
+		array_push($item->classes,'drp-lemon-hover');
+	}
+	if(in_array("current-menu-item",$item->classes) && in_array("drp-the_ram",$item->classes) )
+	{
+		array_push($item->classes,'drp-the_ram-hover');
+	}
+	if(in_array("current-menu-item",$item->classes) && in_array("drp-great_hall",$item->classes) )
+	{
+		array_push($item->classes,'drp-great_hall-hover');
+	}
+	if(in_array("current-menu-item",$item->classes) && in_array("drp-forum_kitchen",$item->classes) )
+	{
+		array_push($item->classes,'drp-forum_kitchen-hover');
+	}
+	//END To keep current menu with different color for Venues
+
+
+		// echo '<pre>';print_r($item);
   	  $output .= "<li class='" .  implode(" ", $item->classes) . "'>";
         
       //Add SPAN if no Permalink

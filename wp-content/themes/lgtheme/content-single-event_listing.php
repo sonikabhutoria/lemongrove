@@ -14,7 +14,7 @@ $post_slug = get_post_field( 'post_name', $event_venue_id);
 if($post_slug == "lemon-grove")
 {
     $color = "#6C5E93";
-    $banner_image_width = "width: 10% !important; margin-top: 9rem !important;";
+    $banner_image_width = "width: 10% !important;float:unset;";// margin-top: 9rem !important;
     $media_css = "#header h1 { font-size: 27px !important;}
             .logo-img-mob { width:27% !important; margin-top: 3rem !important;}";
 
@@ -23,14 +23,14 @@ if($post_slug == "lemon-grove")
 else if($post_slug == "the-ram-bar")
 {
     $color = "#738626";
-    $banner_image_width = "width: 6% !important; margin-top: 8rem !important;";
+    $banner_image_width = "width: 6% !important;float:unset; ";//margin-top: 8rem !important;
     $media_css = "#aboutus { margin-top: 70px !important;}
             .logo-img-mob { width: 19% !important;}";
 }
 else if($post_slug == "great-hall")
 {
     $color = "#BB9650";
-    $banner_image_width = "width: 8% !important; margin-top: 8rem !important;";
+    $banner_image_width = "width: 8% !important; float:unset;";//margin-top: 8rem !important;
     $media_css = "#aboutus { margin-top: 70px !important;}
             .logo-img-mob { width: 19% !important;}
             #header h1 { font-size: 26px !important;}";
@@ -38,7 +38,7 @@ else if($post_slug == "great-hall")
 else if($post_slug == "forum-kithcen")
 {
     $color = "#FF9300";
-    $banner_image_width = "width: 8% !important; margin-top: 8rem !important;";
+    $banner_image_width = "width: 8% !important;float:unset; ";//margin-top: 8rem !important;
     $media_css = "#aboutus { margin-top: 0px !important;}
             .logo-img-mob { width: 32% !important;}
             #header h1 { font-size: 24px !important;}";

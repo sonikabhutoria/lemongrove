@@ -26,6 +26,8 @@ body{
 
 	#navbar-main .nav .active a {color: #CE000D;}
 
+	#navbar-main .nav .active_venue_menu a {color: #fff;} /*Added by me*/
+
 	@media (max-width: 500px) {
 	    body{ 
 	    	background-image: url('../images/home-drp.png')!important;

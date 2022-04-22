@@ -6,7 +6,7 @@ $post_slug = $post->post_name;
 if($post_slug == "lemon-grove")
 {
     $color = "#6C5E93";
-    $banner_image_width = "width: 10% !important; margin-top: 9rem !important;";
+    $banner_image_width = "width: 10% !important;float:unset; ";//margin-top: 9rem !important;
     $media_css = "#header h1 { font-size: 27px !important;}
             .logo-img-mob { width:27% !important; margin-top: 3rem !important;}";
 
@@ -15,14 +15,14 @@ if($post_slug == "lemon-grove")
 else if($post_slug == "the-ram-bar")
 {
     $color = "#738626";
-    $banner_image_width = "width: 6% !important; margin-top: 8rem !important;";
+    $banner_image_width = "width: 6% !important;float:unset;";//margin-top: 8rem !important;
     $media_css = "#aboutus { margin-top: 70px !important;}
             .logo-img-mob { width: 19% !important;}";
 }
 else if($post_slug == "great-hall")
 {
     $color = "#BB9650";
-    $banner_image_width = "width: 8% !important; margin-top: 8rem !important;";
+    $banner_image_width = "width: 8% !important; float:unset;";//margin-top: 8rem !important;
     $media_css = "#aboutus { margin-top: 70px !important;}
             .logo-img-mob { width: 19% !important;}
             #header h1 { font-size: 26px !important;}";
@@ -30,7 +30,7 @@ else if($post_slug == "great-hall")
 else if($post_slug == "forum-kithcen")
 {
     $color = "#FF9300";
-    $banner_image_width = "width: 8% !important; margin-top: 8rem !important;";
+    $banner_image_width = "width: 8% !important; float:unset;";//margin-top: 8rem !important;
     $media_css = "#aboutus { margin-top: 0px !important;}
             .logo-img-mob { width: 32% !important;}
             #header h1 { font-size: 24px !important;}";
@@ -107,7 +107,7 @@ if( get_field('mobile_background_image') ){
     <div class="wpem-venue-profile">
 
         <?php do_action('single_event_listing_venue_start'); ?>
-        <div class="wpem-row">
+        <!-- <div class="wpem-row"> -->
             <!-- <div class="wpem-col-md-3">
                 <div class="wpem-venue-logo-wrapper">
                     <div class="wpem-venue-logo">
@@ -116,7 +116,7 @@ if( get_field('mobile_background_image') ){
                     <?php /** <div class="wpem-venue-logo-title wpem-heading-text"><a><span><?php echo $venue_name; ?></span></a></div> */ ?>
                 </div>
             </div> -->
-            <div class="wpem-col-md-12 wpem-col-sm-12">
+            <!-- <div class="wpem-col-md-12 wpem-col-sm-12"> -->
                 <div class="wpem-venue-infomation-wrapper">
                    <!--  <div class="wpem-venue-name wpem-heading-text">
                         <span><?php //echo $venue->post_title; ?></span>
@@ -181,8 +181,8 @@ if( get_field('mobile_background_image') ){
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            <!-- </div> -->
+        <!-- </div> -->
         <div class="wpem-venue-contact-actions">
             <?php do_action('single_event_listing_venue_action_start', $venue_id); ?>
 

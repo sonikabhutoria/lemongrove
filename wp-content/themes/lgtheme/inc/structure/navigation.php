@@ -24,6 +24,8 @@ if ( ! function_exists( 'generate_navigation_position' ) ) {
 		do_action( 'generate_before_navigation' );
 		?>
 		<!-- <nav <?php //generate_do_attr( 'navigation' ); ?>> -->
+			<section id="menu-container">
+			<div class="container">
 		<nav class="navbar" id="navbar-main">
 			<div <?php generate_do_attr( 'inside-navigation' ); ?>>
 				<?php
@@ -95,6 +97,8 @@ if ( ! function_exists( 'generate_navigation_position' ) ) {
 				?>
 			</div>
 		</nav>
+	</div>
+	</section>
 
 		<?php
 

@@ -21,10 +21,12 @@ if ( ! function_exists( 'generate_construct_header' ) ) {
 
 		<section  id="header">
 		<header <?php generate_do_attr( 'header' ); ?> style="background: none !important;">
+			<div class="container">
+				<div class="row">
 			<div class="col-md-12" id="mob-nav">
 					<div class="mob-header">
 						<span>01392 723511</span>
-						<button class="btn btn-bar" style="float: right;" data-toggle="modal" id="mobile-menu-button" data-target="#myModalFullscreen" contenteditable="false"><i class="fa fa-bars"></i></button>
+						<button class="btn btn-bar" style="float: right;" data-toggle="modal" id="mobile-menu-button" data-target="#myModalFullscreen" contenteditable="false"><i class="lni lni-menu"></i></button>
 					</div>
 					
 				</div>
@@ -78,6 +80,8 @@ if ( ! function_exists( 'generate_construct_header' ) ) {
 				 */
 				do_action( 'generate_after_header_content' );
 				?>
+			</div>
+			</div>
 			</div>
 		</header>
 		</section>

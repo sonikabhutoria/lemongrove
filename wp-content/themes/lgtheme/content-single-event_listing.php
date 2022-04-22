@@ -79,6 +79,13 @@ if( get_field('mobile_background_image',$event_venue_id) ){
             background-size: 100%!important;
             background-repeat: no-repeat!important;
         }
+         #header{background-image: unset;}
+        .dropdown-menu {
+            position: inherit;
+            text-align: left!important;
+        }
+
+        <?php echo $media_css; ?>
     }
    
      .wpem-single-event-page .wpem-single-event-wrapper

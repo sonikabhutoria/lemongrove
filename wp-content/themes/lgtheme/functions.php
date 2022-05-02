@@ -139,7 +139,6 @@ function themeslug_enqueue_style() {
     wp_enqueue_style( 'booking', get_stylesheet_directory_uri()."/assets/css/booking.css", false );
     wp_enqueue_style( 'about_us', get_stylesheet_directory_uri()."/assets/css/about_us.css" );
 
-
     if(is_page('home-page'))
     {
     	wp_enqueue_style( 'our_venues', get_stylesheet_directory_uri()."/assets/css/our_venues.css", false );

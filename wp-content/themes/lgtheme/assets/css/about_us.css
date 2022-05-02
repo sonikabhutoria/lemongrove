@@ -54,6 +54,12 @@
     padding: 14px 95px!important;
     border-radius: 0px!important;
     font-weight: 600!important;
+    color: #fff;
+
+}
+
+#aboutus .btn-whatson:hover {
+    color: #b9b7b7;
 }
 
 

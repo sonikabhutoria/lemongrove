@@ -61,7 +61,7 @@ if( get_field('mobile_background_image') ){
    #banner-img .logo-img{<?php echo $banner_image_width; ?>}
     
     .wo-au-text-heading {color: <?php echo $color; ?>;!important;     }
-    .check-out-text { color: <?php echo $color; ?>;}
+    .check-out-text { color: <?php echo $color; ?>;padding-top: 7px;}
     #booking .book-subhead{color: <?php echo $color; ?>;}
 
     .modal-content{

@@ -35,7 +35,7 @@ else if($post_slug == "great-hall")
             .logo-img-mob { width: 19% !important;}
             #header h1 { font-size: 26px !important;}";
 }
-else if($post_slug == "forum-kithcen")
+else if($post_slug == "forum-kitchen")
 {
     $color = "#FF9300";
     $banner_image_width = "width: 8% !important;float:unset; ";//margin-top: 8rem !important;

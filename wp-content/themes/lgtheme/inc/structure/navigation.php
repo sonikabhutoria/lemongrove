@@ -145,7 +145,7 @@ if ( ! function_exists( 'generate_navigation_position' ) ) {
 		$post = $wp_query->get_queried_object();
 		$post_slug = $post->post_name;
 
-		$venue_array  = array("lemon-grove","the-ram-bar","great-hall","forum-kithcen");
+		$venue_array  = array("lemon-grove","the-ram-bar","great-hall","forum-kitchen");
 
 		if( is_page('whats-on') || is_page('private-hire') || is_page('contact') || in_array($post_slug,$venue_array) ) 
 		{

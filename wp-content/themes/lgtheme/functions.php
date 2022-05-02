@@ -127,7 +127,7 @@ function themeslug_enqueue_style() {
 	{
 		$current_venue = $url_arr[2];
 	}
-    $venue_array  = array("lemon-grove","the-ram-bar","great-hall","forum-kithcen");
+    $venue_array  = array("lemon-grove","the-ram-bar","great-hall","forum-kitchen");
 
     wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri()."/assets/css/bootstrap.min.css", false );
     wp_enqueue_style( 'font-awesome', "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", false );

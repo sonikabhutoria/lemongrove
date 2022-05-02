@@ -150,7 +150,7 @@ function themeslug_enqueue_style() {
 
 
 
-    if(is_page('whats-on') || is_page('private-hire') || is_page('contact') || in_array($current_venue,$venue_array) || 'post' === $post_type || 'event_listing' == $post_type || is_page('blog'))
+    if(is_page('whats-on') || is_page('private-hire') || is_page('contact') || in_array($current_venue,$venue_array) || 'post' === $post_type || 'event_listing' == $post_type || is_page('blog') || is_page('privacy'))
     {
     	wp_enqueue_style( 'inter_our_venues', get_stylesheet_directory_uri()."/assets/css/intern-our_venues.css", false );
     	wp_enqueue_style( 'whats-on', get_stylesheet_directory_uri()."/assets/css/whats-on.css", false );

@@ -125,7 +125,7 @@ function themeslug_enqueue_style() {
 	$url_arr = explode("/",$_SERVER['REQUEST_URI']);
 	if($post_type == "event_venue")	
 	{
-		$current_venue = $url_arr[3];
+		$current_venue = $url_arr[2];
 	}
     $venue_array  = array("lemon-grove","the-ram-bar","great-hall","forum-kithcen");
 

@@ -67,6 +67,8 @@
 
 		.cont-email{
 			font-size: 20px;
+			position: absolute;
+    		bottom: 10px;
 		}
 
 

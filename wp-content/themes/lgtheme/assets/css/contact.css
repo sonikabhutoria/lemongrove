@@ -30,24 +30,28 @@
 		    background: #e53131;
 		    text-align: left;
 		    padding: 30px;
+		    height: 360px;
 		}	
 
 		.ov-2 {
 		    background: #2B2B2A;
 		    text-align: left;
 		    padding: 30px;
+		    height: 360px;
 		}
 
 		.ov-3 {
 		    background: #BB9650;
 		    text-align: left;
 		    padding: 30px;
+		    height: 360px;
 		}
 
 		.ov-4 {
 		    background: #fff;
 		    text-align: left;
 		    padding: 30px;
+		    height: 360px;
 		}
 		.ov-1 .cont-ov-text{padding-top: 88px; padding-bottom: 40px;}
 		.ov-2 .cont-ov-text{padding-top: 26px;padding-bottom: 69px;}

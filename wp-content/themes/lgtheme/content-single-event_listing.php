@@ -75,7 +75,7 @@ if( get_field('mobile_background_image',$event_venue_id) ){
 
     #banner-img .logo-img{<?php echo $banner_image_width; ?>}
 
-    .card-body{    padding: 28px;}
+    .card-body{    padding: 28px;height: unset;}
 
      @media (max-width: 500px) {
         body{ 
@@ -219,7 +219,7 @@ if( get_field('mobile_background_image',$event_venue_id) ){
                                     </p>
                                     <div class="col-md-offset-4 col-md-4">
                                         <!-- <a href="<?php //display_event_permalink(); ?>" class="btn btn-book">BOOK NOW</a> -->
-                                        <a href="<?php echo $event_url; ?>" class="btn btn-book">BOOK NOW</a>
+                                        <a href="<?php echo $event_url; ?>" class="btn btn-book-detail">BOOK NOW</a>
                                     </div>
 
 

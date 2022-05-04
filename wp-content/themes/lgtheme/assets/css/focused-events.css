@@ -106,3 +106,14 @@
     letter-spacing: 4px;
     margin-left: 21px;
 }
+
+.btn-book-detail {
+    width: 86%;
+    color: #fff;
+    padding: 15px;
+    font-weight: 800!important;
+    background: #141414;
+    border-radius: 0;
+    /*position: absolute;*/
+    bottom: 0;
+}

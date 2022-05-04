@@ -2,10 +2,10 @@
 Contributors: MotoPress
 Donate link: https://motopress.com/
 Tags: gutenberg, gutenberg blocks, wordpress blocks, blocks, editor, block, gutenberg library, templates, page builder, section, google maps, mailchimp, acf
-Requires at least: 5.4
-Tested up to: 5.8
+Requires at least: 5.5
+Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 1.7.8
+Stable tag: 1.8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,8 @@ This plugin comes with a library of pre-designed layouts to help you quickly bui
 * Features and Services templates.
 * Team and FAQ, etc.
 
+View also [Gutenberg WordPress themes](https://motopress.com/products/category/gutenberg-wordpress-themes/) for different business niches that are built with Getwid.
+
 ### Custom Field Filter and Meta Query
 
 The Custom post type, Post slider, and Post carousel blocks can be extended with custom filters sourced by third-party plugins (WooCommerce, Advanced Custom Fields, Events Calendar etc.) that have their own custom fields. Getwid blocks use these fields as meta queries to allow you to organize automatic rendering of posts by a wider range of custom filters.
@@ -179,6 +181,22 @@ Getwid plugin is distributed under the terms of the GNU GPL.
 
 == Changelog ==
 
+= 1.8.0, May 02 2022 =
+* New block: added the Content Slider block.
+
+= 1.7.10, Apr 26 2022 =
+* Added the ability to add a link to the Background Featured Image template part block.
+* Fixed an issue with the font size picker.
+* Fixed an issue when content of Post Slider and Post Carousel blocks may disappear in the block editor.
+
+= 1.7.9, Mar 16 2022 =
+* Improved compatibility with WordPress 5.9.
+* Increased the maximum number of slides in the Media & Text Slider block.
+* Fixed an issue when the first slide's content may have disappeared in the Media & Text Slider block.
+* Fixed an issue with the slide content class in the Media & Text Slider block.
+* Fixed an issue with the button width in the Button Group block.
+* Fixed an issue when some blocks may have not been displayed in the block inserter.
+
 = 1.7.8, Dec 14 2021 =
 * Minor bugfixes and improvements of the Google Maps, Table and Image Slider blocks.
 
@@ -196,13 +214,6 @@ Getwid plugin is distributed under the terms of the GNU GPL.
 
 = 1.7.3, Jul 30 2021 =
 * Revert changes in version 1.7.2.
-
-= 1.7.2, Jul 29 2021 =
-* Improved compatibility with WordPress 5.8.
-* Added the ability to use post template parts and ACF template parts in the Query Loop Block.
-
-= 1.7.1, Jul 02 2021 =
-* New feature: Custom Field Filter. It allows you to extend the post filtering possibilities for the Custom post type, Post slider, and Post carousel blocks, e.g. use post filters sourced from third-party plugins like WooCommerce.
 
 --------
 

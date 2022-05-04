@@ -4,7 +4,7 @@
 -------------------------------*/
 
 #focused-events{
-    padding: 50px 20px;  /*Changed by me padding: 50px;*/
+    padding: 50px 20px 0px;  /*Changed by me padding: 50px;*/
 }
 
 .heading {
@@ -21,6 +21,7 @@
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   width: 100%;
+  height: 191px;
 }
 
 .card-title {
@@ -33,15 +34,17 @@
     font-weight: 600;
 }
 
-.btn-book{
-    width: 100%; 
+
+.btn-book {
+    width: 86%;
     color: #fff;
-    margin-top: 3rem;
     padding: 15px;
     font-weight: 800!important;
     background: #141414;
     border-radius: 0;
-    margin-bottom: 10px;}
+    position: absolute;
+    bottom: 45px;
+}
 
 .btn-book:hover{
     background-color: #D10000;
@@ -60,7 +63,7 @@
 
 
 #focused-events .btn-book: hover{color: #fff; }
-.card-body{color: #fff; padding: 0px 10px;background: #000;}
+.card-body{color: #fff; padding: 0px 10px;background: #000;height: 222px;}
 
 .card-img-overlay a{color: #fff;padding-left: 0;}
 
@@ -93,4 +96,13 @@
 /*Added by me*/
 .contact-heading{
     padding-left: 26px;
+}
+
+#focused-events-heading {
+    color: #fff;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 80px;
+    letter-spacing: 4px;
+    margin-left: 21px;
 }

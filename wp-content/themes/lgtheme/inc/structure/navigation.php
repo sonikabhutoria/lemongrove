@@ -101,7 +101,7 @@ if ( ! function_exists( 'generate_navigation_position' ) ) {
 	</section>
 
 		<?php
-
+		/* START Get header image and title for single event detail page*/
 		$post_type = get_post_type();
 		$venue_detail_page = "";
 		if($post_type == "event_listing")
@@ -125,18 +125,20 @@ if ( ! function_exists( 'generate_navigation_position' ) ) {
 		               
 		               <img src="<?php echo $file_url;?>" class="logo-img-mob">
 		            </div>
-		            <div class="col-md-12 whats-heading">
-		               <h1><?php if( get_field('header_title',$event_venues_id) ):
+		            <!-- <div class="col-md-12 whats-heading"> -->
+		               <!-- <h1> -->
+		               	<?php /*if( get_field('header_title',$event_venues_id) ):
 		                  the_field('header_title',$event_venues_id);
-		                  endif; ?>
-		               </h1>
-		            </div>
+		                  endif;*/ ?>
+		               <!-- </h1> -->
+		            <!-- </div> -->
 		         </div>
 		      </div>
 		   </div>
 
    		<?php
    		}
+   		/* END Get header image and title for single event detail page*/
    		?>
 
    		<?php
@@ -188,8 +190,18 @@ if ( ! function_exists( 'generate_navigation_position' ) ) {
 								<img src="<?php echo get_stylesheet_directory_uri()."/assets/";?>images/whats_on_header-logo.svg" class="logo-img">
 								<img src="<?php echo get_stylesheet_directory_uri()."/assets/";?>images/mob-logo.svg" class="logo-img-mob">
 							</div>
+							<?php 
+							if(is_page('blog')) 
+							{
+								$blog_title = "BLOG IS MA</br>VOLORE VOLORIA.";
+							}
+							else
+							{
+								$blog_title = get_the_title();	
+							}
+							?>
 							<div class="col-md-12 whats-heading">
-								<h1> BLOG IS MA</br>VOLORE VOLORIA.</h1>
+								<h1> <?php echo $blog_title; ?></h1>
 							</div>
 						</div>
 					</div>

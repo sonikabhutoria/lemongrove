@@ -7,6 +7,8 @@ $end_time   = get_event_end_time();
 $event_type = get_event_type();
 $venues_name = get_event_venue_name();
 
+$event_url = $post->_event_url;
+
 if (is_array($event_type) && isset($event_type[0]))
     $event_type = $event_type[0]->slug;
 
@@ -55,7 +57,8 @@ $thumbnail  = get_event_thumbnail($post,'full');
              ?>
        
         </p>
-      <a href="<?php display_event_permalink(); ?>" class="btn btn-book">BOOK NOW</a>
+      <!-- <a href="<?php //display_event_permalink(); ?>" class="btn btn-book">BOOK NOW</a> -->
+      <a href="<?php echo $event_url; ?>" class="btn btn-book">BOOK NOW</a>
     </div>
 
   </div>

@@ -7,7 +7,11 @@ $venue_name   = get_event_venue_name();
 $end_time   = get_event_end_time();
 $start_time = get_event_start_time();
 $event_type = get_event_type();
+
+$event_url = $post->_event_url;
+
 $event_venue_id = get_post(get_event_venue_ids()); 
+
 
 $post_slug = get_post_field( 'post_name', $event_venue_id);
 
@@ -92,11 +96,22 @@ if( get_field('mobile_background_image',$event_venue_id) ){
      {
         border: unset !important;
      }
+
+     .wpem-heading-text{
+        font-size: 80px;
+        font-weight: 800;
+        padding: 0px 0px 50px;
+        letter-spacing: 4px;
+        color: #fff;
+     }
     
 
 </style>
 
 <div class="single_event_listing">
+    <div class="wpem-event-title">
+        <h1 class="wpem-heading-text"><?php the_title(); ?></h1>
+    </div>
 
     <div class="wpem-main wpem-single-event-page">
         <?php if (get_option('event_manager_hide_expired_content', 1) && 'expired' === $post->post_status): ?>
@@ -161,9 +176,9 @@ if( get_field('mobile_background_image',$event_venue_id) ){
                                      }
                                      ?>
 
-                                    <div class="wpem-event-title">
+                                    <!-- <div class="wpem-event-title">
                                         <h3 class="wpem-heading-text" style="color:#D10000;"><?php the_title(); ?></h3>
-                                    </div>
+                                    </div> -->
 
 
 
@@ -203,7 +218,8 @@ if( get_field('mobile_background_image',$event_venue_id) ){
                                    
                                     </p>
                                     <div class="col-md-offset-4 col-md-4">
-                                        <a href="<?php display_event_permalink(); ?>" class="btn btn-book">BOOK NOW</a>
+                                        <!-- <a href="<?php //display_event_permalink(); ?>" class="btn btn-book">BOOK NOW</a> -->
+                                        <a href="<?php echo $event_url; ?>" class="btn btn-book">BOOK NOW</a>
                                     </div>
 
 

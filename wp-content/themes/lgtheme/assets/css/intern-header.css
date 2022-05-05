@@ -551,8 +551,17 @@ and (max-device-width : 1007px)
           } 
 
 @media (max-width: 768px)
+{
     .inside-article  {
      padding: 0px !important;
     } 
 }
+
+@media (max-width: 800px)
+{
+    #navbar-main{display: none;}
+    #subnavbar{display: none;}
+    #mob-nav{display: block;}
+}
+
 

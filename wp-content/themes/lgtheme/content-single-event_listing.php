@@ -9,6 +9,7 @@ $start_time = get_event_start_time();
 $event_type = get_event_type();
 
 $event_url = $post->_event_url;
+$post_content = $post->post_content;
 
 $event_venue_id = get_post(get_event_venue_ids()); 
 
@@ -166,6 +167,7 @@ if( get_field('mobile_background_image',$event_venue_id) ){
                         <div class="wpem-col-xs-12 wpem-col-sm-12 wpem-col-md-12 ">
                             <div class="wpem-single-event-short-info">                        
                                 <div class="wpem-event-details">
+                                    <div><?php echo $post_content; ?></div>
                                     <div><?php echo $venue_name; ?></div>
                                     <?php 
                                      if (!empty($start_time))
@@ -217,7 +219,7 @@ if( get_field('mobile_background_image',$event_venue_id) ){
                                         
                                    
                                     </p>
-                                    <div class="col-md-offset-4 col-md-4">
+                                    <div class="col-md-offset-4 col-md-4" style="padding-top: 20px;">
                                         <!-- <a href="<?php //display_event_permalink(); ?>" class="btn btn-book">BOOK NOW</a> -->
                                         <a href="<?php echo $event_url; ?>" class="btn btn-book-detail">BOOK NOW</a>
                                     </div>

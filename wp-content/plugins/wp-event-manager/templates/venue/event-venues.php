@@ -3,7 +3,7 @@
 
     <?php if(count($venues) > 0) : ?>
 
-        <div class="venue-related-data-counter">
+       <!--  <div class="venue-related-data-counter">
 
             <div class="venue-counter-number-icon">
                 <div class="venue-counter-upper-wrap">
@@ -26,26 +26,10 @@
                 </a>
             </div>
 
-        </div>
+        </div> -->
         <!-- end venue Counter -->
 
-        <!-- shows numbers and alphabet -->
-        <div class="wpem-main venue-letters venue-letters">
-            <div class="venue-letters-list">
-                <a id="ALL" href="#All"><?php _e('All', 'wp-event-manager'); ?></a>
-            </div>
-
-            <?php
-            foreach (range('0', '9') as $letter) :
-                echo '<div class="venue-letters-list"><a id="' . $letter . '" href="#' . $letter . '">' . $letter . '</a></div>';
-            endforeach;
-
-            foreach (range('A', 'Z') as $letter) :
-                echo '<div class="venue-letters-list"><a id="' . $letter . '" href="#' . $letter . '">' . $letter . '</a></div>';
-            endforeach;
-            ?>
-
-        </div>
+        
 
         <!-- shows venue related data -->
         <div class="wpem-main wpem-row venue-related-data-wrapper">

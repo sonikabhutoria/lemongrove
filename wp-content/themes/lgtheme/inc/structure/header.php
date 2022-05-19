@@ -25,7 +25,7 @@ if ( ! function_exists( 'generate_construct_header' ) ) {
 				<div class="row">
 			<div class="col-md-12" id="mob-nav">
 					<div class="mob-header">
-						<span>01392 723511</span>
+						<span>01392 723511 | <a href="<?php echo home_url();?>" style="color:#fff;">HOME</a></span>
 						<button class="btn btn-bar" style="float: right;" data-toggle="modal" id="mobile-menu-button" data-target="#myModalFullscreen" contenteditable="false"><i class="lni lni-menu"></i></button>
 					</div>
 					
